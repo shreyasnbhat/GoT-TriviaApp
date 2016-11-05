@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "668928090728",
+    "firebase_url": "https://game-of-thrones-1e480.firebaseio.com",
+    "project_id": "game-of-thrones-1e480",
+    "storage_bucket": "game-of-thrones-1e480.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668928090728:android:c68f9fb8e549b75b",
+        "android_client_info": {
+          "package_name": "com.example.shreyas.gameofthrones"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668928090728-1ej5mgjhbdo0jcb02goclgbqb7qovd11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLhMSiOtwlEnme75rhcWu4IoK8_ymsPys"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668928090728:android:7c94884d8e7af1ad",
+        "android_client_info": {
+          "package_name": "com.example.shreyas.thrones"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668928090728-1ej5mgjhbdo0jcb02goclgbqb7qovd11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLhMSiOtwlEnme75rhcWu4IoK8_ymsPys"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
