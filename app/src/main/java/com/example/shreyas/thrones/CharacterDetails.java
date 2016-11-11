@@ -47,6 +47,30 @@ public class CharacterDetails {
         return died;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setCulture(String culture) {
+        this.culture = culture;
+    }
+
+    public void setBorn(String born) {
+        this.born = born;
+    }
+
+    public void setDied(String died) {
+        this.died = died;
+    }
+
+    public void setPlayedBy(String playedBy) {
+        this.playedBy = playedBy;
+    }
+
     public String getPlayedBy() {
         return playedBy;
     }

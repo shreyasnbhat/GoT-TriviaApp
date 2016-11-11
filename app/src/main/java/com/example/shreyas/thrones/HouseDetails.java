@@ -9,23 +9,48 @@ import java.util.ArrayList;
 public class HouseDetails {
 
 
-    private String name;
-    private String region;
-    private String coatOfArms;
-    private String words;
+    private String name = "";
+    private String region = "";
+    private String coatOfArms = "";
+    private String words = "";
     private ArrayList<String> titles = new ArrayList<>();
-    private String currentLord;
-    private ArrayList<String> members = new ArrayList<>();
 
-    public HouseDetails()
-    {
-
+    public void setCurrentLord(String currentLord) {
+        this.currentLord = currentLord;
     }
 
-    public HouseDetails(String name) {
+    public void setName(String name) {
         this.name = name;
+    }
 
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
+    public void setCoatOfArms(String coatOfArms) {
+        this.coatOfArms = coatOfArms;
+    }
+
+    public void setWords(String words) {
+        this.words = words;
+    }
+
+    public void setTitles(ArrayList<String> titles) {
+        this.titles = titles;
+    }
+
+    public void setMembers(ArrayList<String> members) {
+        this.members = members;
+    }
+
+    private String currentLord = "";
+    private ArrayList<String> members = new ArrayList<>();
+
+    public HouseDetails() {}
+
+    public HouseDetails(String name) {
+
+        this.name = name;
     }
 
     public HouseDetails(String name, String region, String coatOfArms, String words, ArrayList<String> titles, String currentLord, ArrayList<String> members) {

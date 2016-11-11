@@ -13,7 +13,8 @@ public class Firebase extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-    /* Enable disk persistence  */
+
+        /* Enable disk persistence  */
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
     }
