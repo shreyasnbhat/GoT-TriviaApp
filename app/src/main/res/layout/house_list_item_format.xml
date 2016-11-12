@@ -17,7 +17,7 @@
             android:id="@+id/housename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#e74c3c"
+            android:background="@color/Alizarin"
             android:clickable="true"
             android:fontFamily="sans-serif"
             android:gravity="center"

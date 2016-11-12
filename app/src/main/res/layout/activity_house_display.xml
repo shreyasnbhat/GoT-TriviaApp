@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -12,19 +14,22 @@
 
     </android.support.v7.widget.Toolbar>
 
-
-
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         android:id="@+id/houses_rv"
-        android:scrollbars="vertical"
-
-        >
-
-
-
+        android:scrollbars="vertical">
     </android.support.v7.widget.RecyclerView>
+
+    <com.turingtechnologies.materialscrollbar.DragScrollBar
+        android:id="@+id/dragScrollBar"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="wrap_content"
+        app:msb_recyclerView="@id/houses_rv"
+        app:msb_lightOnTouch="true"
+        app:msb_handleColour="@color/blue500"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

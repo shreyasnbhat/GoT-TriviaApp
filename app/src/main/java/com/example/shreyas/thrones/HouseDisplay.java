@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.turingtechnologies.materialscrollbar.AlphabetIndicator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,12 +21,11 @@ import java.util.Comparator;
 public class HouseDisplay extends AppCompatActivity {
 
 
-    private ArrayList<HouseDetails> houses = new ArrayList<>();
-
+    private ArrayList<HouseFormat> houses = new ArrayList<>();
     private Toolbar toolbar;
-
     private RecyclerView rv;
     private DatabaseReference mDatabase;
+    private com.turingtechnologies.materialscrollbar.DragScrollBar scrollBar;
 
 
     @Override
@@ -40,6 +40,7 @@ public class HouseDisplay extends AppCompatActivity {
         //Reference Views
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         rv = (RecyclerView) findViewById(R.id.houses_rv);
+        scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
 
         //Toolbar Stuff
         setSupportActionBar(toolbar);
@@ -54,6 +55,7 @@ public class HouseDisplay extends AppCompatActivity {
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setHasFixedSize(true);
+        scrollBar.setIndicator(new AlphabetIndicator(this),true);
 
         //URLS for JSON Parsing
         String url = "http://www.anapioficeandfire.com/api/houses?page=";
@@ -182,7 +184,7 @@ public class HouseDisplay extends AppCompatActivity {
                         String coatOfArms = shot.child("coatOfArms").getValue(String.class).trim();
                         String LordID = IntegerExtractor(shot.child("currentLord").getValue(String.class).trim());
 
-                        HouseDetails temp = new HouseDetails(name);
+                        HouseFormat temp = new HouseFormat(name);
                         String currentLord="";
                         if(dataSnapshot.child("Characters").child(LordID).child("name").getValue(String.class)!=null)
                         {
@@ -216,10 +218,10 @@ public class HouseDisplay extends AppCompatActivity {
             }
         });
 
-        class HouseDetailsComparator implements Comparator<HouseDetails> {
+        class HouseDetailsComparator implements Comparator<HouseFormat> {
 
             @Override
-            public int compare(HouseDetails t1, HouseDetails t2) {
+            public int compare(HouseFormat t1, HouseFormat t2) {
 
                 return t1.getName().compareTo(t2.getName());
 

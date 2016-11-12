@@ -4,7 +4,7 @@ package com.example.shreyas.thrones;
  * Created by Shreyas on 11/4/2016.
  */
 
-public class CharacterDetails {
+public class CharacterFormat {
 
     String name;
     String gender;
@@ -13,12 +13,12 @@ public class CharacterDetails {
     String died;
     String playedBy;
 
-    public  CharacterDetails()
+    public CharacterFormat()
     {
 
     }
 
-    public CharacterDetails(String name, String gender, String culture, String born, String died, String playedBy) {
+    public CharacterFormat(String name, String gender, String culture, String born, String died, String playedBy) {
         this.name = name;
         this.gender = gender;
         this.culture = culture;

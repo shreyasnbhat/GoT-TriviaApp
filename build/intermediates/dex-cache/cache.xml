@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.turingtechnologies.materialscrollbar\lib\10.1.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="217f7bb1d8656234f84d4d1c3d5a9220d6ab4ce0">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.turingtechnologies.materialscrollbar-lib-10.1.4_f3611fc20848ade4ec8870f49a7e689c4de4b22f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -48,6 +57,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_bfa2ccd642d0c37bd2d0a8db2b7440217991e3dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -90,6 +108,15 @@
         revision="25.0.0"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_de7e24540e69b218591c2eae03d1309f34295df5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_a9b324f384a31fe0d3f4e5a65cdd333e40df20d1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,15 +174,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.0.0_2a1219162301e7d83ebc46938780502b918b2d07\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -171,15 +189,6 @@
         revision="25.0.0"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a3ff49ede19e7eca73271058e0b3e9b6d4d8a724\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.0.0_803b405143e7f504f6b60e84e411839c92f7da54\classes.dex" />
     </item>
     <item
         is-multidex="true"

@@ -100,13 +100,13 @@ public class CharacterDisplay extends AppCompatActivity {
                                     {
 
                                         playedBy = playedBy.substring(2,size-2);
-                                        CharacterDetails x = new CharacterDetails(name,gender,culture,born,died,playedBy);
+                                        CharacterFormat x = new CharacterFormat(name,gender,culture,born,died,playedBy);
                                         mDatabase.child("CharacterDisplay").child(id).setValue(x);
                                     }
                                     else if(size==2 && !name.equalsIgnoreCase("")) {
 
                                         playedBy = "";
-                                        CharacterDetails x = new CharacterDetails(name,gender,culture,born,died,playedBy);
+                                        CharacterFormat x = new CharacterFormat(name,gender,culture,born,died,playedBy);
                                         mDatabase.child("CharacterDisplay").child(id).setValue(x);
 
 

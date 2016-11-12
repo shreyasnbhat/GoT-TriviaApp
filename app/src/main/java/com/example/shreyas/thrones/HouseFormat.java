@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Shreyas on 11/4/2016.
  */
 
-public class HouseDetails {
+public class HouseFormat {
 
 
     private String name = "";
@@ -46,9 +46,9 @@ public class HouseDetails {
     private String currentLord = "";
     private ArrayList<String> members = new ArrayList<>();
 
-    public HouseDetails() {}
+    public HouseFormat() {}
 
-    public HouseDetails(String name) {
+    public HouseFormat(String name) {
 
         this.name = name;
         this.region = " - ";
@@ -57,7 +57,7 @@ public class HouseDetails {
         this.words = " - ";
     }
 
-    public HouseDetails(String name, String region, String coatOfArms, String words, ArrayList<String> titles, String currentLord, ArrayList<String> members) {
+    public HouseFormat(String name, String region, String coatOfArms, String words, ArrayList<String> titles, String currentLord, ArrayList<String> members) {
 
         this.name = name;
         this.region = region;

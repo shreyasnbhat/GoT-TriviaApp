@@ -4,15 +4,14 @@ package com.example.shreyas.thrones;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextClock;
 import android.widget.TextView;
+
+import com.turingtechnologies.materialscrollbar.INameableAdapter;
 
 import java.util.List;
 
@@ -21,9 +20,9 @@ import java.util.List;
  * Created by Shreyas on 11/11/2016.
  */
 
-public class HousesRV extends RecyclerView.Adapter<HousesRV.ViewHolder> {
+public class HousesRV extends RecyclerView.Adapter<HousesRV.ViewHolder> implements INameableAdapter {
 
-   private List<HouseDetails> houseList;
+   private List<HouseFormat> houseList;
 
    private Context mContext;
 
@@ -60,8 +59,16 @@ public class HousesRV extends RecyclerView.Adapter<HousesRV.ViewHolder> {
        }
    }
 
+    @Override
+    public Character getCharacterForElement(int element) {
+
+        String housename = houseList.get(element).getName();
+        return housename.charAt(0);
+
+    }
+
     //Contructor for HouseRV
-    public HousesRV(List<HouseDetails> houseList,Context context) {
+    public HousesRV(List<HouseFormat> houseList, Context context) {
         this.houseList = houseList;
         this.mContext = context;
     }
@@ -85,7 +92,7 @@ public class HousesRV extends RecyclerView.Adapter<HousesRV.ViewHolder> {
     public void onBindViewHolder(HousesRV.ViewHolder holder, int position) {
 
 
-        HouseDetails house = houseList.get(position);
+        HouseFormat house = houseList.get(position);
         holder.housename.setText(house.getName());
         holder.words.setText(house.getWords());
         holder.coatOfArms.setText(house.getCoatOfArms());

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="lib-10.1.4">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.turingtechnologies.materialscrollbar/lib/10.1.4/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.turingtechnologies.materialscrollbar/lib/10.1.4/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.turingtechnologies.materialscrollbar/lib/10.1.4/ea1e0797e6b09adf20da969309e3d9bb1aaba17d/lib-10.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
