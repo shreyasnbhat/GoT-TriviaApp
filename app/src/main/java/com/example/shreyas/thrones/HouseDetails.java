@@ -51,6 +51,10 @@ public class HouseDetails {
     public HouseDetails(String name) {
 
         this.name = name;
+        this.region = " - ";
+        this.currentLord=" - ";
+        this.coatOfArms = " - ";
+        this.words = " - ";
     }
 
     public HouseDetails(String name, String region, String coatOfArms, String words, ArrayList<String> titles, String currentLord, ArrayList<String> members) {

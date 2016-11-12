@@ -14,6 +14,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class HouseDisplay extends AppCompatActivity {
 
@@ -32,21 +34,21 @@ public class HouseDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_house_display);
 
         //Firebase Stuff
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Houses");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
 
         //Reference Views
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        rv = (RecyclerView)findViewById(R.id.houses_rv);
+        rv = (RecyclerView) findViewById(R.id.houses_rv);
 
         //Toolbar Stuff
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle("Houses");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-        final HousesRV adapter = new HousesRV(houses,this);
+        final HousesRV adapter = new HousesRV(houses, this);
 
         //Recycler View Stuff
         rv.setAdapter(adapter);
@@ -169,12 +171,33 @@ public class HouseDisplay extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot shot : dataSnapshot.getChildren()) {
+                for (DataSnapshot shot : dataSnapshot.child("Houses").getChildren()) {
 
                     try {
 
-                        String x = shot.child("name").getValue(String.class).trim();
-                        HouseDetails temp = new HouseDetails(x);
+                        String name = shot.child("name").getValue(String.class).trim();
+                        name = name.replace("House ", "");
+                        String words = shot.child("words").getValue(String.class).trim();
+                        String region = shot.child("region").getValue(String.class).trim();
+                        String coatOfArms = shot.child("coatOfArms").getValue(String.class).trim();
+                        String LordID = IntegerExtractor(shot.child("currentLord").getValue(String.class).trim());
+
+                        HouseDetails temp = new HouseDetails(name);
+                        String currentLord="";
+                        if(dataSnapshot.child("Characters").child(LordID).child("name").getValue(String.class)!=null)
+                        {
+                            currentLord = dataSnapshot.child("Characters").child(LordID).child("name").getValue(String.class);
+                        }
+
+                        if (!words.equals(""))
+                            temp.setWords(words);
+                        if (!region.equals(""))
+                            temp.setRegion(region);
+                        if (!coatOfArms.equals(""))
+                            temp.setCoatOfArms(coatOfArms);
+                        if (!currentLord.equals(""))
+                            temp.setCurrentLord(currentLord);
+
                         houses.add(temp);
 
                     } catch (Exception e) {
@@ -193,6 +216,17 @@ public class HouseDisplay extends AppCompatActivity {
             }
         });
 
+        class HouseDetailsComparator implements Comparator<HouseDetails> {
+
+            @Override
+            public int compare(HouseDetails t1, HouseDetails t2) {
+
+                return t1.getName().compareTo(t2.getName());
+
+            }
+        }
+
+        Collections.sort(houses, new HouseDetailsComparator());
         adapter.notifyDataSetChanged();
 
     }

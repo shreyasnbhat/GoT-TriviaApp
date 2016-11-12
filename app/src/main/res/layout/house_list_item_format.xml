@@ -1,18 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:orientation="vertical"
+    app:cardCornerRadius="2dp">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/housename"
-        android:fontFamily="sans-serif"
-        android:textSize="22sp"
-        android:text="ABC"
-        android:clickable="true"
-        android:gravity="left|center"
-        android:padding="8dp"
-        />
+        android:background="?selectableItemBackgroundBorderless"
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/housename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e74c3c"
+            android:clickable="true"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="ABC"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/currentLord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/housename"
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:layout_toRightOf="@+id/lord_text"
+            android:text="SDF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/coatOfArms_holder"
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:layout_toEndOf="@+id/region_text"
+            android:text="SDF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/words"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/currentLord"
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:layout_toEndOf="@+id/words_text"
+            android:text="SDF"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coatOfArms_holder"
+            android:layout_below="@+id/words">
+
+        <TextView
+            android:id="@+id/coatOfArms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:text="A black crownded stag on a gold field( Or a stag in your fucking ass shitting all over"
+            android:layout_toEndOf="@+id/coatofArms_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coat of Arms : "
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:id="@+id/coatofArms_text"
+            />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Lord : "
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:layout_below="@+id/housename"
+            android:id="@+id/lord_text"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Words : "
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:layout_below="@id/lord_text"
+            android:id="@+id/words_text"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Region : "
+            android:fontFamily="sans-serif-light"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:layout_below="@id/coatOfArms_holder"
+            android:id="@+id/region_text"
+            />
+
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
