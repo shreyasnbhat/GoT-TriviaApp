@@ -18,6 +18,10 @@ public class CharacterFormat {
 
     }
 
+    public CharacterFormat(String name) {
+        this.name = name;
+    }
+
     public CharacterFormat(String name, String gender, String culture, String born, String died, String playedBy) {
         this.name = name;
         this.gender = gender;

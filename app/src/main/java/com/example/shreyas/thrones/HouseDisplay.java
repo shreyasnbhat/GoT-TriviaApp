@@ -49,7 +49,7 @@ public class HouseDisplay extends AppCompatActivity {
         toolbar.setTitle("Houses");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-        final HousesRV adapter = new HousesRV(houses, this);
+        final HousesRVAdapter adapter = new HousesRVAdapter(houses, this);
 
         //Recycler View Stuff
         rv.setAdapter(adapter);

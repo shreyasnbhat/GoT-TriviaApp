@@ -2,36 +2,34 @@ package com.example.shreyas.thrones;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.turingtechnologies.materialscrollbar.AlphabetIndicator;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CharacterDisplay extends AppCompatActivity {
 
     private Toolbar toolbar;
-
-    private ArrayList<String> list = new ArrayList<>();
-
-    private ArrayAdapter<String> adapter;
-
-    private ListView listview;
-
+    private ArrayList<CharacterFormat> characters = new ArrayList<>();
     private DatabaseReference mDatabase;
-
+    private RecyclerView rv;
+    private com.turingtechnologies.materialscrollbar.DragScrollBar scrollBar;
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        list.clear();
+        characters.clear();
     }
 
     @Override
@@ -39,14 +37,14 @@ public class CharacterDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_display);
 
-
         //Firebase Stuff
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
 
         //View Referencing
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        listview = (ListView)findViewById(R.id.list);
+        rv = (RecyclerView) findViewById(R.id.characters_rv);
+        scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
 
         //Toolbar Stuff
         toolbar.setTitle("CharacterDisplay");
@@ -54,8 +52,13 @@ public class CharacterDisplay extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        adapter = new ArrayAdapter<>(CharacterDisplay.this,R.layout.list_house_member_format,R.id.house_names,list);
-        listview.setAdapter(adapter);
+        final CharactersRVAdapter adapter = new CharactersRVAdapter(characters, this);
+
+        //Recycler View Stuff
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setHasFixedSize(true);
+        scrollBar.setIndicator(new AlphabetIndicator(this),true);
 
         String url = "http://www.anapioficeandfire.com/api/characters?page=";
         String temp1;
@@ -151,10 +154,13 @@ public class CharacterDisplay extends AppCompatActivity {
                for (DataSnapshot shot : dataSnapshot.child("Characters").getChildren()) {
 
                    try {
+
                        String x = shot.child("name").getValue(String.class);
 
                        if(x!=null)
-                        {list.add(x);}
+
+                        {
+                            characters.add(new CharacterFormat(x));}
 
                        adapter.notifyDataSetChanged();
                    }
@@ -174,14 +180,19 @@ public class CharacterDisplay extends AppCompatActivity {
            }
        });
 
+        class CharacterDetailsComparator implements Comparator<CharacterFormat> {
 
+            @Override
+            public int compare(CharacterFormat t1,CharacterFormat t2) {
 
+                Log.v("Test",t1.getName() + "   " + t2.getName() + "  " + t1.getName().compareTo(t2.getName()));
+                return t1.getName().compareTo(t2.getName());
 
+            }
+        }
 
-
-
-
-
+        //Collections.sort(characters, new CharacterDetailsComparator());
+        //adapter.notifyDataSetChanged();
 
     }
 
