@@ -1,7 +1,15 @@
-# GoT-TriviaApp
-Game Of Thrones Trivia App
+## Game Of Thrones WIKI APP
+> **Requirements**
+> - Java 8 JDK
+> - Android Studio `2.2` release(`AI-145.3360264`)
+> - Build tools `25.0.1' or above`(Use `SDK Manager` to update)
+> - Minimum SDK is `19`.
 
-1. Wiki on all Houses major and minor
-2. Wiki on all characters in the books and the show.
-3. Wiki on all Books by George R R Martin
-4. Additional details like region maps and other content from the show such as quotes(Future Release)
+
+> **Libraries Used**
+>- OkHttp
+>- Turing Technologies Material ScrollBar
+>- Firebase Database
+
+
+
