@@ -27,8 +27,11 @@
         <activity
             android:name=".HouseDisplay"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".CharacterInfoActivity"
+            android:parentActivityName=".CharacterDisplay"
+            >
 
-
+        </activity>
     </application>
 
 </manifest>

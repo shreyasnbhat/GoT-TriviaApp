@@ -1,6 +1,7 @@
 package com.example.shreyas.thrones;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,14 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
         {
             super(v);
             name = (TextView)v.findViewById(R.id.name);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext,CharacterInfoActivity.class);
+                    intent.putExtra("CharacterName",name.getText().toString());
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
     }

@@ -52,6 +52,8 @@ public class HouseMemberDisplay extends AppCompatActivity {
         setSupportActionBar(toolbar_house);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar_house.setTitleTextColor(getResources().getColor(R.color.white));
+
 
         //ArrayAdapter Stuff
         adapter = new ArrayAdapter<>(this, R.layout.list_house_member_format, R.id.house_names, sworn);

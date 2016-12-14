@@ -162,6 +162,7 @@ public class CharacterDisplay extends AppCompatActivity {
                         {
                             characters.add(new CharacterFormat(x));}
 
+
                        adapter.notifyDataSetChanged();
                    }
                    catch(Exception e)

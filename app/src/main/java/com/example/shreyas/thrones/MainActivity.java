@@ -3,13 +3,16 @@ package com.example.shreyas.thrones;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button HouseButton;
-    private Button CharacterButton;
+    private TextView HouseButton;
+    private TextView CharacterButton;
+    private Toolbar toolbar;
 
 
 
@@ -19,8 +22,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Reference Views
-        HouseButton = (Button)findViewById(R.id.house_button);
-        CharacterButton = (Button)findViewById(R.id.character_button);
+        HouseButton = (TextView) findViewById(R.id.house_button);
+        CharacterButton = (TextView) findViewById(R.id.character_button);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+
+        toolbar.setTitle("Game Of Thrones Wiki");
+
+        //Toolbar Stuff
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
 
         //Setting Listeners
         HouseButton.setOnClickListener(new View.OnClickListener() {

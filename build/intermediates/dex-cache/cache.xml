@@ -3,102 +3,156 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.turingtechnologies.materialscrollbar\lib\10.1.4\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="217f7bb1d8656234f84d4d1c3d5a9220d6ab4ce0">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.turingtechnologies.materialscrollbar-lib-10.1.4_f3611fc20848ade4ec8870f49a7e689c4de4b22f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_811a187e4a1160fbe1997fdd3aa0779fa26d3e07\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_fda5606ed7b53fc44c46d1a3b4fceb241e4b30da\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9ff04cc3470178a44512624036751a803418c2ca">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_969504be1cccaf141a1d4f784dd627f7195cd13e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5f47ede9561595584dca71104baa0fecb36dda87">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.8.0_8fa793323933b1c699e456c7e94637de57b3d714\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_892e692bff82ffa59699eec6bbfae9b644b2dfe2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_971eff758d686b4ab356d3f062288abee1dfa32e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a3ff49ede19e7eca73271058e0b3e9b6d4d8a724\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f4371aa227430d571bcfe6a04ebb89b2ff4998eb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.0.0\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="17b00cfca2afd21c033341eb14b5f750426ef68c">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_688973016d4bdae1ea90fa1d59c4038dff3072c3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_fe061ab64d74df4c5e20f2eccc7d998392579a5c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="8dd49930e4f9dde1a42d37e362b9fea8b1b69c0d">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.0.0_0fcfca79755a8a94274de122f9895190ce45405b\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.0.0_7bf5a7e0651add4ad1776c6085a2513dae003bdc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_bfa2ccd642d0c37bd2d0a8db2b7440217991e3dc\classes.dex" />
+        sha1="190a642ba16d1421296a4d794606279b80039c59">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_3641f22a86251028f431943f60d165404b16face\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.8.0_235e977365916751f1eeda01f83286fb47bd9f79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9ff04cc3470178a44512624036751a803418c2ca">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_fa860f620c34d733ada9c381f5f84233d2155c4a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_b9d7a2547c4d3d2fbc1262c436d8ca685d5366ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_8e91bb5d86affe6cbd4faee8ce785deff88e622e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.8.0_32446850dde43c94350233105f8170866118faf4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.turingtechnologies.materialscrollbar\lib\10.1.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="217f7bb1d8656234f84d4d1c3d5a9220d6ab4ce0">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.turingtechnologies.materialscrollbar-lib-10.1.4_afa8e10737215574e885b21f60c06b0b436275d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_d691da2388de53894b607f9ae1e725cc38b25844\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="455b26660b4df9ed0c7d5bdca9e46986088d48d3">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_90a6916adfe8c0966a7d088389bc91c1ce5b413a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.8.0_830aba0d861983b47b064b724c882b2db2672b70\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.8.0_59869cfe1e87d8ae6efdc5a1542b1e47bd59d3ec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.8.0_99e60cadf707b2d018e8e58e5abd5390f3d3039a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ffcde99914dc8295d6a1d543495487debeea4cbb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_7e2472c8853dac516b7fd253a70399c592fc3b82\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -107,61 +161,34 @@
         optimize="true"
         revision="25.0.0"
         sha1="ccde00f7ccc77af5a6d5752e2cb21f6d8998289f">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.2_d5a6fc9f1d76dd3f9f117fd7246ab43f07e3e336\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.2_d5a6fc9f1d76dd3f9f117fd7246ab43f07e3e336\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_5f311c6397018cd54faf63592f9151a440c9fcc2\classes.dex" />
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_9d8682d8d0bbeaf50f564f0501216099bfc9368d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f4e907299207c30b4a02278b6d8125fe6bf0042d">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_56051708b43635b809982ccf14e346ae9bf18eb9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.8.0_49da74a0e677ef44a78d1919f0e2b214a7668e0a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_3b8e3ba80c60bc2ca946b896a57b01cb382d85e7\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_83bc442354a0240db027fdcbcb94ddd78f2b5a90\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_de7e24540e69b218591c2eae03d1309f34295df5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_a9b324f384a31fe0d3f4e5a65cdd333e40df20d1\classes.dex" />
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_116477afe9edadb6a963fd94b85be40ff5ea4ea1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -170,25 +197,34 @@
         optimize="true"
         revision="25.0.0"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_fd9250c3c0f2321a3c9c4dd61f66eafa395f00f3\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_fd9250c3c0f2321a3c9c4dd61f66eafa395f00f3\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_f5830152d731d8a92b4f9bfadc5d38d7721bbca8\classes.dex" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_9a4ef36832cc2f82d3dfcb33df821e7d98c3767f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="81b6948c9628a1d88376c1d2ce788e8fc8cbc6c1">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_b8ebeb88488b8186febbdcfa5525bbd691945acc\classes.dex" />
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_df22fa95915776c21c768bba8188f7d875067642\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_5b6d31f583878614907358ee503f9c5a794e5f4b\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -197,97 +233,70 @@
         optimize="true"
         revision="25.0.0"
         sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_337e7cc0e9d75c50536d272370aba5a360df710f\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_337e7cc0e9d75c50536d272370aba5a360df710f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_d9a294f96ec9a69f21f53f81a0e7a7dc97daf6bf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_af929e09ca6b1dcf716a87745985f034f02dec55\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.8.0_8b8205aa8f2cf38db31590671dcb865f3b64aab6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_1c52cef78cb4c8c28d6c9651d648181eb3b3332f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_d03874af0405f884256bf3c1c1dac02ca335b06e\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_e210104e9637350c42ced0de265d0cf27a74c173\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.8.0_1412f6be815dde216373de0f13d159ef5dd3e180\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_60f7d133a39201b164d3aff78c9c61868355face\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_91a99e6715435ff68fe742166cde48099868b6c5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="190a642ba16d1421296a4d794606279b80039c59">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_07aeef70d520c5b340c50817c82cd0b2ef6928f8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GameOfThrones\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_7912f144310ad2c4f0d49ce9b077892c642d855a\classes.dex" />
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_047a0f1ccf767d18f4aeb7b97a43254e82eb3fa5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f47ede9561595584dca71104baa0fecb36dda87">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.8.0_ac38650c640e1f6106ae7cded362f045c985e1ef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_daccc92f60ddd5ae83470304c3646945845cf2fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_bda453b0232e70d4dceb01821d3bbcb59a20cfb9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.makeramen\roundedimageview\2.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="814fc0c3ec69a944add398217d90077301501a74">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.makeramen-roundedimageview-2.2.1_111af748fbee1c936089010b0c4e5f5dcd7bc3bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_044f11e4ba60448d401dde7a55f712de575deb8b\classes.dex" />
     </item>
 
 </items>
