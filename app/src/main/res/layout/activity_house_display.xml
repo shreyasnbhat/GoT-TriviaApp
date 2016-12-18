@@ -9,6 +9,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"
         android:title="Houses"
+        android:titleTextColor="#ffffff"
+        app:theme="@style/ToolbarStyle"
+
         android:background="@color/colorPrimary"
         >
 

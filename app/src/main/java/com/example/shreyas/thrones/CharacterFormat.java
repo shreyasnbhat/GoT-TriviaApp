@@ -6,29 +6,35 @@ package com.example.shreyas.thrones;
 
 public class CharacterFormat {
 
-    String name;
-    String gender;
-    String culture;
-    String born;
-    String died;
-    String playedBy;
+    String name="Not Found";
+    String gender="Unknown :p";
+    String culture="Not Found";
+    String born="Not Found";
+    String died="Not Found/Not Dead";
+    String playedBy="Not Found";
 
     public CharacterFormat()
     {
 
     }
 
+
+
     public CharacterFormat(String name) {
         this.name = name;
     }
 
-    public CharacterFormat(String name, String gender, String culture, String born, String died, String playedBy) {
+    public CharacterFormat(String name, String playedBy,String gender,String born,String died) {
+        if(name.length()!=0)
         this.name = name;
-        this.gender = gender;
-        this.culture = culture;
-        this.born = born;
-        this.died = died;
+        if(playedBy.length()!=0)
         this.playedBy = playedBy;
+        if(gender.length()!=0)
+        this.gender = gender;
+        if(born.length()!=0)
+        this.born = born;
+        if(died.length()!=0)
+        this.died = died;
     }
 
     public String getName() {

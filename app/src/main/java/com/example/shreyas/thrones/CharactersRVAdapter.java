@@ -32,10 +32,25 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
             super(v);
             name = (TextView)v.findViewById(R.id.name);
             v.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
+
                     Intent intent = new Intent(mContext,CharacterInfoActivity.class);
                     intent.putExtra("CharacterName",name.getText().toString());
+
+                    CharacterFormat character = new CharacterFormat();
+
+                    //Get Adapter Position
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                         character = characterList.get(position);
+                    }
+
+                    intent.putExtra("playedBy",character.getPlayedBy());
+                    intent.putExtra("gender",character.getGender());
+                    intent.putExtra("died",character.getDied());
+                    intent.putExtra("born",character.getBorn());
                     mContext.startActivity(intent);
                 }
             });

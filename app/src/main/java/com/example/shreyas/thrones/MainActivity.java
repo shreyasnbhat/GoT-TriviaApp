@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Toolbar Stuff
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
 
