@@ -2,6 +2,7 @@ package com.example.shreyas.thrones;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.DraweeView;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,13 +44,14 @@ public class CharacterInfoActivity extends AppCompatActivity {
     private TextView genderText;
     private TextView bornText;
     private TextView diedText;
+    private SimpleDraweeView image;
     private ProgressBar progress;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Fresco.initialize(this);
         setContentView(R.layout.activity_character_info);
 
         //Getting Intent Extras from Adapter
@@ -57,7 +60,6 @@ public class CharacterInfoActivity extends AppCompatActivity {
         String died = getIntent().getStringExtra("died");
         String born = getIntent().getStringExtra("born");
         String gender = getIntent().getStringExtra("gender");
-
 
         Log.e("PLAYED BY",playedBy);
         Log.e("GENDER",gender);
@@ -69,6 +71,9 @@ public class CharacterInfoActivity extends AppCompatActivity {
         diedText = (TextView)findViewById(R.id.died_textView);
         bornText = (TextView)findViewById(R.id.born_textView);
         progress = (ProgressBar)findViewById(R.id.progressbar);
+        image = (SimpleDraweeView) findViewById(R.id.character_image);
+
+        progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFFF"), android.graphics.PorterDuff.Mode.SRC_ATOP);
 
         if(character!=null)
         toolbar.setTitle(character);
@@ -90,14 +95,21 @@ public class CharacterInfoActivity extends AppCompatActivity {
         //URL Constants for JSON Parsing and data Retrieval from awoiaf MediaWiki page
         String CONSTANT_URL = "http://awoiaf.westeros.org/api.php?&action=query&format=json&prop=extracts&titles=";
         String url = CONSTANT_URL + character;
+        //String IMAGE_URL = "https://commons.wikimedia.org/w/api.php?action=query&titles=File:";
+        //IMAGE_URL = IMAGE_URL + playedBy + ".jpg&prop=imageinfo&iiprop=url";
+
+        Uri imageUri = Uri.parse("https://upload.wikimedia.org/wikipedia/commons/7/7a/Kit_Harington.jpg");
+        image.setImageURI(imageUri);
 
         //Setting Up OkHttp to run a Asynchronous Service
         OkHttpClient client = new OkHttpClient();
 
-        Request request = new Request.Builder()
+        final Request request = new Request.Builder()
                 .url(url)
                 .build();
 
+
+        //Request 1 for retreival of wiki data
         client.newCall(request).enqueue(new Callback() {
 
                                             @Override
@@ -115,8 +127,10 @@ public class CharacterInfoActivity extends AppCompatActivity {
 
                                                 } else {
 
+                                                    progress.setIndeterminate(true);
+
                                                     try {
-                                                        progress.setIndeterminate(true);
+
                                                         final String responseData = response.body().string();
                                                         JSONObject query = new JSONObject(responseData);
                                                         JSONObject pages = query.getJSONObject("query").getJSONObject("pages");
@@ -138,14 +152,18 @@ public class CharacterInfoActivity extends AppCompatActivity {
                                                                 try {
                                                                     TextView myTextView = (TextView) findViewById(R.id.character_extract);
                                                                     String temp[] = details.split("<h2>References and Notes</h2>");
-                                                                    myTextView.setText(Html.fromHtml(temp[0]));
+                                                                    String temp1[]  = temp[0].split("<h2>Family</h2>");
+                                                                    myTextView.setText(Html.fromHtml(temp1[0]));
+
                                                                     progress.setVisibility(View.INVISIBLE);
+
                                                                 } catch (Exception e) {
                                                                     e.printStackTrace();
                                                                 }
                                                             }
                                                         });
                                                     } catch (JSONException e) {
+
                                                         progress.setVisibility(View.INVISIBLE);
                                                         e.printStackTrace();
                                                     }

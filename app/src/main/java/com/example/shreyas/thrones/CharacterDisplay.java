@@ -53,7 +53,7 @@ public class CharacterDisplay extends AppCompatActivity {
         scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
 
         //Toolbar Stuff
-        toolbar.setTitle("CharacterDisplay");
+        toolbar.setTitle("Characters");
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -173,10 +173,9 @@ public class CharacterDisplay extends AppCompatActivity {
                        if(name!=null)
 
                         {
-                            characters.add(new CharacterFormat(name,playedBy,gender,born,died));}
+                            characters.add(new CharacterFormat(name,playedBy,gender,born,died));
+                        }
 
-
-                       characters = removeDuplicates(characters);
 
                        adapter.notifyDataSetChanged();
                        progress.setVisibility(View.INVISIBLE);
@@ -187,6 +186,9 @@ public class CharacterDisplay extends AppCompatActivity {
                    }
 
                }
+
+               characters = removeDuplicates(characters);
+               adapter.notifyDataSetChanged();
            }
 
            @Override
@@ -203,14 +205,17 @@ public class CharacterDisplay extends AppCompatActivity {
             @Override
             public int compare(CharacterFormat t1,CharacterFormat t2) {
 
+                String one = t1.getName();
+                String two = t2.getName();
 
-                return t1.getName().compareTo(t2.getName());
+                return one.compareToIgnoreCase(two);
 
             }
         }
 
-        Collections.sort(characters, new CharacterDetailsComparator());
-        adapter.notifyDataSetChanged();
+        //Collections.sort(characters,new CharacterDetailsComparator());
+        //adapter.notifyDataSetChanged();
+
 
     }
 

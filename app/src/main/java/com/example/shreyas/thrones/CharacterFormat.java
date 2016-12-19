@@ -1,13 +1,17 @@
 package com.example.shreyas.thrones;
 
+import java.util.Comparator;
+
 /**
  * Created by Shreyas on 11/4/2016.
  */
 
-public class CharacterFormat {
+public class CharacterFormat implements Comparable<CharacterFormat>  {
 
-    String name="Not Found";
+    String name="";
     String gender="Unknown :p";
+
+
     String culture="Not Found";
     String born="Not Found";
     String died="Not Found/Not Dead";
@@ -18,7 +22,10 @@ public class CharacterFormat {
 
     }
 
-
+    @Override
+    public int compareTo(CharacterFormat o) {
+        return name.compareTo(o.getName());
+    }
 
     public CharacterFormat(String name) {
         this.name = name;

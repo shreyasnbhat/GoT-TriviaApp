@@ -57,6 +57,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Shreyas\.gradle\caches\modules-2\files-2.1\org.jsoup\jsoup\1.10.1\645f1ad2f6f4cbad1cde4c483eae71e4051be6ef\jsoup-1.10.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="645f1ad2f6f4cbad1cde4c483eae71e4051be6ef">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\pre-dexed\debug\jsoup-1.10.1_44899af0bfcdc3be834695830709b61406d5fba8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
