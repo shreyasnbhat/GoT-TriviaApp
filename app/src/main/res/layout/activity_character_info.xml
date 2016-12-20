@@ -31,7 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-
             android:text="Character Biodata"
             android:fontFamily="sans-serif-smallcaps"
             android:textSize="22dp"
@@ -177,6 +176,8 @@
                 android:gravity="left"
                 android:id="@+id/born_textView"
                 android:text="Born"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
@@ -205,6 +206,8 @@
                 android:gravity="left"
                 android:id="@+id/died_textView"
                 android:text="Died"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
@@ -212,6 +215,7 @@
 
                 android:layout_below="@+id/born_textView"
                 android:layout_toEndOf="@+id/died_textView_hint" />
+
         </RelativeLayout>
 
 

@@ -167,13 +167,15 @@ public class CharacterInfoActivity extends AppCompatActivity {
                                                                     progress.setVisibility(View.INVISIBLE);
 
                                                                 } catch (Exception e) {
+
+                                                                    progress.setVisibility(View.INVISIBLE);
                                                                     e.printStackTrace();
                                                                 }
                                                             }
                                                         });
                                                     } catch (JSONException e) {
 
-                                                        progress.setVisibility(View.INVISIBLE);
+                                                        //progress.setVisibility(View.INVISIBLE);
                                                         e.printStackTrace();
                                                     }
                                                     // Run view-related code back on the main thread

@@ -2,6 +2,7 @@ package com.example.shreyas.thrones;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,11 +27,13 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView name;
+        CardView card;
 
         public ViewHolder(View v)
         {
             super(v);
             name = (TextView)v.findViewById(R.id.name);
+            card = (CardView)v.findViewById(R.id.parent_card);
             v.setOnClickListener(new View.OnClickListener() {
 
                 @Override

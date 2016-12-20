@@ -42,7 +42,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/toolbar"
-        app:msb_handleColour="@color/blue500"
+        app:msb_handleColour="@color/colorAccent"
         app:msb_lightOnTouch="true"
         app:msb_recyclerView="@id/characters_rv" />
 

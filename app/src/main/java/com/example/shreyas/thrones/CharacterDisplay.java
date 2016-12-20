@@ -172,7 +172,7 @@ public class CharacterDisplay extends AppCompatActivity {
                        String imageUrl = shot.child("imageUrl").getValue(String.class);
 
 
-                       if(name!=null)
+                       if(name!=null && imageUrl!=null)
 
                         {
                             characters.add(new CharacterFormat(name,playedBy,gender,born,died,imageUrl));
@@ -209,14 +209,15 @@ public class CharacterDisplay extends AppCompatActivity {
 
                 String one = t1.getName();
                 String two = t2.getName();
+                Log.e(one,two);
 
                 return one.compareToIgnoreCase(two);
 
             }
         }
 
-        //Collections.sort(characters,new CharacterDetailsComparator());
-        //adapter.notifyDataSetChanged();
+        Collections.sort(characters,new CharacterDetailsComparator());
+        adapter.notifyDataSetChanged();
 
 
     }

@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="345eb0020155f77ab14a07c6f45b6240b7241a46">
+        sha1="d097e534e6490c9159989b1418c9199d1e01d7a4">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_688973016d4bdae1ea90fa1d59c4038dff3072c3\classes.dex" />
     </item>
     <item
@@ -223,7 +223,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="d7da5b641e5c3783fe98ba6e32c627e07aceb9e3">
+        sha1="177fc28d143121b4398bcb8038381e94167e85bc">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_90a6916adfe8c0966a7d088389bc91c1ce5b413a\classes.dex" />
     </item>
     <item
