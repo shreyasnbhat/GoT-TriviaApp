@@ -169,11 +169,13 @@ public class CharacterDisplay extends AppCompatActivity {
                        String gender = shot.child("gender").getValue(String.class);
                        String born = shot.child("born").getValue(String.class);
                        String died = shot.child("died").getValue(String.class);
+                       String imageUrl = shot.child("imageUrl").getValue(String.class);
+
 
                        if(name!=null)
 
                         {
-                            characters.add(new CharacterFormat(name,playedBy,gender,born,died));
+                            characters.add(new CharacterFormat(name,playedBy,gender,born,died,imageUrl));
                         }
 
 

@@ -6,19 +6,19 @@ import java.util.Comparator;
  * Created by Shreyas on 11/4/2016.
  */
 
-public class CharacterFormat implements Comparable<CharacterFormat>  {
+public class CharacterFormat implements Comparable<CharacterFormat> {
 
-    String name="";
-    String gender="Unknown :p";
+    String name = "";
+    String gender = "Unknown :p";
+    String culture = "Not Found";
+    String born = "Not Found";
+    String died = "Not Found/Not Dead";
 
 
-    String culture="Not Found";
-    String born="Not Found";
-    String died="Not Found/Not Dead";
-    String playedBy="Not Found";
+    String playedBy = "Not Found";
+    String imageUrl = "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kit_Harington.jpg";
 
-    public CharacterFormat()
-    {
+    public CharacterFormat() {
 
     }
 
@@ -31,17 +31,33 @@ public class CharacterFormat implements Comparable<CharacterFormat>  {
         this.name = name;
     }
 
-    public CharacterFormat(String name, String playedBy,String gender,String born,String died) {
-        if(name.length()!=0)
-        this.name = name;
-        if(playedBy.length()!=0)
-        this.playedBy = playedBy;
-        if(gender.length()!=0)
-        this.gender = gender;
-        if(born.length()!=0)
-        this.born = born;
-        if(died.length()!=0)
-        this.died = died;
+    public CharacterFormat(String name, String playedBy, String gender, String born, String died) {
+        if (name.length() != 0)
+            this.name = name;
+        if (playedBy.length() != 0)
+            this.playedBy = playedBy;
+        if (gender.length() != 0)
+            this.gender = gender;
+        if (born.length() != 0)
+            this.born = born;
+        if (died.length() != 0)
+            this.died = died;
+    }
+
+    public CharacterFormat(String name,String playedBy, String gender, String born, String died,  String imageUrl) {
+
+        if (name.length() != 0)
+            this.name = name;
+        if (playedBy.length() != 0)
+            this.playedBy = playedBy;
+        if (gender.length() != 0)
+            this.gender = gender;
+        if (born.length() != 0)
+            this.born = born;
+        if (died.length() != 0)
+            this.died = died;
+        if(imageUrl!=null)
+            this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -90,5 +106,14 @@ public class CharacterFormat implements Comparable<CharacterFormat>  {
 
     public String getPlayedBy() {
         return playedBy;
+    }
+
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

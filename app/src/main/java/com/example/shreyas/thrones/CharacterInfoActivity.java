@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.DraweeView;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +46,7 @@ public class CharacterInfoActivity extends AppCompatActivity {
     private TextView genderText;
     private TextView bornText;
     private TextView diedText;
+    private DatabaseReference mDatabase;
     private SimpleDraweeView image;
     private ProgressBar progress;
 
@@ -60,9 +63,14 @@ public class CharacterInfoActivity extends AppCompatActivity {
         String died = getIntent().getStringExtra("died");
         String born = getIntent().getStringExtra("born");
         String gender = getIntent().getStringExtra("gender");
+        String imageUrl = getIntent().getStringExtra("imageUrl");
 
         Log.e("PLAYED BY",playedBy);
         Log.e("GENDER",gender);
+
+        //Firebase Stuff
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
 
         //Referencing Views
         toolbar = (Toolbar)findViewById(R.id.toolbar);
@@ -98,9 +106,10 @@ public class CharacterInfoActivity extends AppCompatActivity {
         //String IMAGE_URL = "https://commons.wikimedia.org/w/api.php?action=query&titles=File:";
         //IMAGE_URL = IMAGE_URL + playedBy + ".jpg&prop=imageinfo&iiprop=url";
 
-        Uri imageUri = Uri.parse("https://upload.wikimedia.org/wikipedia/commons/7/7a/Kit_Harington.jpg");
-        image.setImageURI(imageUri);
-
+        if(imageUrl!="") {
+            Uri imageUri = Uri.parse(imageUrl);
+            image.setImageURI(imageUri);
+        }
         //Setting Up OkHttp to run a Asynchronous Service
         OkHttpClient client = new OkHttpClient();
 
@@ -177,6 +186,9 @@ public class CharacterInfoActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 }

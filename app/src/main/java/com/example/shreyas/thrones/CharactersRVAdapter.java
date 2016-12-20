@@ -51,6 +51,7 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
                     intent.putExtra("gender",character.getGender());
                     intent.putExtra("died",character.getDied());
                     intent.putExtra("born",character.getBorn());
+                    intent.putExtra("imageUrl",character.getImageUrl());
                     mContext.startActivity(intent);
                 }
             });
