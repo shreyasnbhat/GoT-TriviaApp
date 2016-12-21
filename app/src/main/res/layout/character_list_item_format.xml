@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:id="@+id/parent_card"
+    android:background="#1e1e1e"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="0dp"
-    android:layout_margin="5dp"
-    android:background="@color/blue500">
+    android:layout_margin="4dp"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="8dp"
+        fresco:roundAsCircle="false"
+        fresco:actualImageScaleType="focusCrop"
+        fresco:placeholderImage="@drawable/avatar_placeholder"
+        android:id="@+id/character_image"
+
+        />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Character"
+        android:gravity="center"
+        android:background="#40000000"
+        android:textColor="@color/white"
+        android:layout_gravity="bottom"
         android:padding="12dp"
         android:id="@+id/name"
-        android:textSize="20sp"
+        android:textSize="16sp"
         />
 
-</android.support.v7.widget.CardView>
+</FrameLayout>

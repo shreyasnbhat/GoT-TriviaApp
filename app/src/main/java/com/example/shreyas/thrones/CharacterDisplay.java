@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +30,7 @@ public class CharacterDisplay extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private RecyclerView rv;
     private ProgressBar progress;
-    private com.turingtechnologies.materialscrollbar.DragScrollBar scrollBar;
+    //private com.turingtechnologies.materialscrollbar.DragScrollBar scrollBar;
 
     @Override
     protected void onDestroy() {
@@ -50,7 +51,7 @@ public class CharacterDisplay extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         rv = (RecyclerView) findViewById(R.id.characters_rv);
         progress = (ProgressBar)findViewById(R.id.progressbar);
-        scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
+        //scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
 
         //Toolbar Stuff
         toolbar.setTitle("Characters");
@@ -63,9 +64,9 @@ public class CharacterDisplay extends AppCompatActivity {
 
         //Recycler View Stuff
         rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setLayoutManager(new StaggeredGridLayoutManager(2,1));
         rv.setHasFixedSize(true);
-        scrollBar.setIndicator(new AlphabetIndicator(this),true);
+        //scrollBar.setIndicator(new AlphabetIndicator(this),true);
 
         String url = "http://www.anapioficeandfire.com/api/characters?page=";
         String temp1;

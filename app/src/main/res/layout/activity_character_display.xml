@@ -36,15 +36,6 @@
 
     </FrameLayout>
 
-    <com.turingtechnologies.materialscrollbar.DragScrollBar
-        android:id="@+id/dragScrollBar"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/toolbar"
-        app:msb_handleColour="@color/colorAccent"
-        app:msb_lightOnTouch="true"
-        app:msb_recyclerView="@id/characters_rv" />
 
 
 </RelativeLayout>

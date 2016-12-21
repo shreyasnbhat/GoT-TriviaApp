@@ -2,6 +2,7 @@ package com.example.shreyas.thrones;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.DraweeView;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.turingtechnologies.materialscrollbar.INameableAdapter;
 
 import java.util.List;
@@ -27,13 +30,15 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView name;
-        CardView card;
+        SimpleDraweeView image;
+
 
         public ViewHolder(View v)
         {
             super(v);
             name = (TextView)v.findViewById(R.id.name);
-            card = (CardView)v.findViewById(R.id.parent_card);
+            image = (SimpleDraweeView)v.findViewById(R.id.character_image);
+
             v.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -93,6 +98,10 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
     public void onBindViewHolder(CharactersRVAdapter.ViewHolder holder, int position) {
 
         holder.name.setText(characterList.get(position).getName());
+        if(characterList.get(position).getImageUrl()!="") {
+            Uri imageUri = Uri.parse(characterList.get(position).getImageUrl());
+            holder.image.setImageURI(imageUri);
+        }
 
     }
 

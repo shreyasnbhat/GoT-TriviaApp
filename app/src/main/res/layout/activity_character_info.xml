@@ -51,7 +51,6 @@
                 fresco:placeholderImage="@drawable/avatar_placeholder"
                 android:id="@+id/character_image"
                 android:layout_below="@+id/bio_details"
-
                 />
 
 

@@ -54,7 +54,7 @@ public class CharacterInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fresco.initialize(this);
+
         setContentView(R.layout.activity_character_info);
 
         //Getting Intent Extras from Adapter

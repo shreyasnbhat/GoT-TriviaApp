@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         app:msb_recyclerView="@id/houses_rv"
         app:msb_lightOnTouch="true"
-        app:msb_handleColour="@color/blue500"
+        app:msb_handleColour="@color/colorAccent"
         android:layout_height="match_parent" />
 
 </RelativeLayout>
