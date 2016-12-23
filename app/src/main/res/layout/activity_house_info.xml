@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:titleTextColor="#ffffff"
+        app:theme="@style/ToolbarStyle">
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/sworn_member_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#60000000"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="16dp"
+                android:text="Sworn Members"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <FrameLayout
+                android:id="@+id/frame_layout_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/sworn_member_text">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/sworn_member_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="#1e1e1e"
+                    android:padding="4dp" />
+
+                <TextView
+                    android:id="@+id/error_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:text="Nothing Found"
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/house_wiki"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/frame_layout_recycler"
+                android:background="#60000000"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="16dp"
+                android:text="House Data"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/house_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/house_wiki"
+                android:layout_margin="8dp"
+                fresco:actualImageScaleType="focusCrop"
+                fresco:placeholderImage="@drawable/avatar_placeholder"
+                fresco:roundAsCircle="false"
+                fresco:roundedCornerRadius="8dp" />
+
+
+            <TextView
+                android:id="@+id/wiki_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/house_image"
+                android:background="#50000000"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="16dp"
+                android:text="House Wiki"
+                android:textColor="#ffffff"
+                android:textSize="22dp"
+
+
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/wiki_details">
+
+                <TextView
+                    android:id="@+id/house_extract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:padding="16dp"
+                    android:textColor="#E0E0E0"
+                    android:textSize="20sp"
+
+                    />
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="56dp" />
+
+            </FrameLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

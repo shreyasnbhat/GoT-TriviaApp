@@ -42,12 +42,11 @@ public class HousesRVAdapter extends RecyclerView.Adapter<HousesRVAdapter.ViewHo
            v.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   Intent intent = new Intent(mContext,HouseMemberDisplay.class);
+                   Intent intent = new Intent(mContext,HouseInfo.class);
                    String toSendHouseName = housename.getText().toString();
 
                    final int loc = getAdapterPosition();
                    Log.v("Position",loc+"");
-
                    intent.putExtra("houseName",toSendHouseName);
                    intent.putExtra("HousePosition",loc+"");
                    mContext.startActivity(intent);

@@ -102,6 +102,11 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
             Uri imageUri = Uri.parse(characterList.get(position).getImageUrl());
             holder.image.setImageURI(imageUri);
         }
+        else
+        {
+            Uri imageUri = Uri.parse("https://upload.wikimedia.org/wikipedia/commons/7/7a/Kit_Harington.jpg");
+            holder.image.setImageURI(imageUri);
+        }
 
     }
 

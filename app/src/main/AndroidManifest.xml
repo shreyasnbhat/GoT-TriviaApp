@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HouseMemberDisplay"
+            android:name=".HouseInfo"
             android:parentActivityName=".HouseDisplay" />
         <activity
             android:name=".CharacterDisplay"
