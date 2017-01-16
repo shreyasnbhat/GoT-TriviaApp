@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,7 +37,7 @@ public class CharacterDisplay extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        characters.clear();
+
     }
 
     @Override
@@ -161,6 +162,7 @@ public class CharacterDisplay extends AppCompatActivity {
            public void onDataChange(DataSnapshot dataSnapshot) {
 
                progress.setIndeterminate(true);
+               characters.clear();
 
                for (DataSnapshot shot : dataSnapshot.child("Characters").getChildren()) {
 

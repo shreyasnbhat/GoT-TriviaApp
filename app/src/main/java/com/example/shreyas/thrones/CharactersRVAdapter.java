@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.DraweeView;
@@ -31,6 +32,7 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
 
         TextView name;
         SimpleDraweeView image;
+        FrameLayout parentFrame;
 
 
         public ViewHolder(View v)
@@ -38,6 +40,7 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
             super(v);
             name = (TextView)v.findViewById(R.id.name);
             image = (SimpleDraweeView)v.findViewById(R.id.character_image);
+            parentFrame = (FrameLayout)v.findViewById(R.id.parent_frame);
 
             v.setOnClickListener(new View.OnClickListener() {
 
@@ -98,13 +101,18 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
     public void onBindViewHolder(CharactersRVAdapter.ViewHolder holder, int position) {
 
         holder.name.setText(characterList.get(position).getName());
+        if(mContext instanceof HouseInfo)
+        {
+            holder.parentFrame.setLayoutParams(new FrameLayout.LayoutParams(450, FrameLayout.LayoutParams.MATCH_PARENT));
+            holder.parentFrame.setPadding(8,8,8,8);
+        }
         if(characterList.get(position).getImageUrl()!="") {
             Uri imageUri = Uri.parse(characterList.get(position).getImageUrl());
             holder.image.setImageURI(imageUri);
         }
         else
         {
-            Uri imageUri = Uri.parse("https://upload.wikimedia.org/wikipedia/commons/7/7a/Kit_Harington.jpg");
+            Uri imageUri = Uri.parse("https://www.couchcms.com/forum/styles/comboot/theme/images/default_avatar.jpg");
             holder.image.setImageURI(imageUri);
         }
 
