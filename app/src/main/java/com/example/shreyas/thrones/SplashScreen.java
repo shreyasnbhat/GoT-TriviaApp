@@ -2,13 +2,10 @@ package com.example.shreyas.thrones;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
-import java.util.Random;
 
 public class SplashScreen extends AppCompatActivity {
 

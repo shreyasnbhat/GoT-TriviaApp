@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="f071f53504787c5984f8035abdd230d76f862e72">
+        sha1="9033a0a8dcf74be099b1115ee2d662babec397ee">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_688973016d4bdae1ea90fa1d59c4038dff3072c3\classes.dex" />
     </item>
     <item
@@ -48,6 +48,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_b9d7a2547c4d3d2fbc1262c436d8ca685d5366ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -72,15 +81,6 @@
         revision="25.0.0"
         sha1="9ff04cc3470178a44512624036751a803418c2ca">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_fa860f620c34d733ada9c381f5f84233d2155c4a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_b9d7a2547c4d3d2fbc1262c436d8ca685d5366ce\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -133,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="818eb5d87676228d9cdd62a8d6c5890fc2689548">
+        sha1="ab319f2091fcca49568bbbd3385b1c3b86a11bbe">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_90a6916adfe8c0966a7d088389bc91c1ce5b413a\classes.dex" />
     </item>
     <item
@@ -219,21 +219,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_116477afe9edadb6a963fd94b85be40ff5ea4ea1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Shreyas\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="129874135e6081269ace2312092031558865de12">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-android-1.1.4_75fdf36c3a40902e075917fc71e3a39ac6e46396\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_116477afe9edadb6a963fd94b85be40ff5ea4ea1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -300,21 +300,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_047a0f1ccf767d18f4aeb7b97a43254e82eb3fa5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="5f47ede9561595584dca71104baa0fecb36dda87">
         <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.8.0_ac38650c640e1f6106ae7cded362f045c985e1ef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\Shreyas\AndroidStudioProjects\GoT-TriviaApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_047a0f1ccf767d18f4aeb7b97a43254e82eb3fa5\classes.dex" />
     </item>
     <item
         is-multidex="true"

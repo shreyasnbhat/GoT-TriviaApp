@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">"Game Of Thrones"</string>
     <string name="dummy">"House Stark of Winterfell is one of the Great Houses of Westeros and the principal noble house of the north; many lesser houses are sworn to them. In days of old they ruled as Kings of Winter, but since the Wars of Conquest by House Targaryen they have been Wardens of the North. Their seat, Winterfell, is an ancient castle renowned for its strength.\n\nTheir sigil is a grey direwolf racing across a field of white, and their words are "Winter is Coming", one of only a few house mottoes to be a warning rather than a boast. Members of the family tend to be lean of build and long of face, with dark brown hair and grey eyes. Several of the POV characters of A Song of Ice and Fire are members of House Stark.\n\nAside from the Karstarks of Karhold, the Starks of Winterfell may have distant relatives elsewhere in the north, possibly in White Harbor and Barrowton. Some younger Starks have also held vassal holdfasts for the lords of Winterfell."</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
