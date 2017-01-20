@@ -25,10 +25,8 @@ public class SplashScreen extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         mBackground = (ImageView)findViewById(R.id.background_image_view);
-        //int bIds[] = new int[]{R.drawable.arryn,R.drawable.stark,R.drawable.baratheon,R.drawable.targaryen,R.drawable.lannister};
-        //Random randomNumber = new Random();
-        //int r = randomNumber.nextInt(bIds.length);
-        //mBackground.setImageDrawable(getResources().getDrawable(bIds[r]));
+
+
         new Handler().postDelayed(new Runnable() {
 
             /*

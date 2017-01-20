@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -14,9 +15,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
@@ -24,9 +27,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
-    private Toolbar toolbar;
     private ListView mDrawerList;
+    private FloatingSearchView searchView;
 
 
     @Override
@@ -34,25 +36,26 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Fresco.initialize(this);
+
         //Reference Views
-
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-
-
-        //Toolbar Stuff
-        toolbar.setTitle("Game Of Thrones Wiki");
-        setSupportActionBar(toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        searchView = (FloatingSearchView)findViewById(R.id.floating_search_view);
 
         //Navigation Drawer Stuff
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        searchView.attachNavigationDrawerToMenuButton(drawer);
+
+        searchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+            @Override
+            public void onSearchTextChanged(String oldQuery, final String newQuery) {
+
+                //get suggestions based on newQuery
+                //Search Here using newQuery
+
+            }
+        });
+
 
     }
 
@@ -70,16 +73,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
 
 
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.search_item,menu);
-            // Get the SearchView and set the searchable configuration
-            SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-            android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) menu.findItem(R.id.search).getActionView();
-            // Assumes current activity is the searchable activity
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-            searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
-
-            return super.onCreateOptionsMenu(menu);
+        return super.onCreateOptionsMenu(menu);
 
 
     }

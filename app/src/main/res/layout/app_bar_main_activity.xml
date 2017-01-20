@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context="com.example.shreyas.thrones.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+
+    <include layout="@layout/content_main"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_main"
+        />
 
-    </android.support.design.widget.AppBarLayout>
+    <com.arlib.floatingsearchview.FloatingSearchView
+        android:id="@+id/floating_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        style="@style/SearchView"
+        app:floatingSearch_menu="@menu/main"
+        android:layout_gravity="top|center_horizontal"
+        android:background="@color/colorPrimary"
+        app:floatingSearch_close_search_on_keyboard_dismiss="false"
+        app:floatingSearch_dimBackground="false"
+        app:floatingSearch_dismissOnOutsideTouch="true"
+        app:floatingSearch_leftActionMode="showHamburger"
+        app:floatingSearch_searchHint="Search..."
+        app:floatingSearch_showSearchKey="true"
+        app:floatingSearch_searchBarMarginLeft="6dp"
+        app:floatingSearch_searchBarMarginTop="6dp"
+        app:floatingSearch_searchBarMarginRight="6dp"
+        app:floatingSearch_suggestionsListAnimDuration="250"/>
 
-    <include layout="@layout/content_main" />
 
 
-
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>
