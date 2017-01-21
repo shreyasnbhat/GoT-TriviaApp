@@ -4,17 +4,53 @@
     android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/targaryen"
+    android:background="#f44336"
     android:orientation="horizontal"
     tools:context="com.example.shreyas.thrones.MainActivity">
 
 
-    <ImageView
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:background="#90757575"
-        />
+     android:layout_below="@+id/text_result"
+        android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:padding="8dp"
+        android:id="@+id/search_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="30dp"
+         android:text="No Results Found"
+         android:textColor="@color/white"
+         android:gravity="center"
+         android:textSize="22sp"
+         android:id="@+id/no_result"
+         android:fontFamily="sans-serif-smallcaps"
+         android:layout_gravity="center"
+         />
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/text_result"
+        android:background="#80000000"
+        android:text="Search Result"
+        android:textColor="@color/white"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="70dp"/>
+
+
 
 
 

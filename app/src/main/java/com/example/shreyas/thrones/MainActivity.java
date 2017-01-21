@@ -4,6 +4,8 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
@@ -21,6 +23,11 @@ import android.widget.TextView;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -28,7 +35,14 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ListView mDrawerList;
+    private DatabaseReference mDatabase;
+    private DatabaseReference charactersRef;
     private FloatingSearchView searchView;
+    private TextView noResultTextView;
+    private TextView SearchNumber;
+    private ArrayList<CharacterFormat> results = new ArrayList<>();
+    private RecyclerView searchRecyclerView;
+    private CharactersRVAdapter searchAdapter = new CharactersRVAdapter(results, this);
 
 
     @Override
@@ -37,8 +51,21 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Fresco.initialize(this);
 
+        //Firebase Stuff
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
+        charactersRef = mDatabase.child("Characters");
+
         //Reference Views
-        searchView = (FloatingSearchView)findViewById(R.id.floating_search_view);
+        searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
+        searchRecyclerView = (RecyclerView) findViewById(R.id.search_recycler_view);
+        noResultTextView = (TextView) findViewById(R.id.no_result);
+        SearchNumber = (TextView)findViewById(R.id.text_result);
+
+        //Recycler View Stuff
+        searchRecyclerView.setAdapter(searchAdapter);
+        searchRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+        searchRecyclerView.setHasFixedSize(true);
 
         //Navigation Drawer Stuff
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -49,13 +76,12 @@ public class MainActivity extends AppCompatActivity
         searchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
             @Override
             public void onSearchTextChanged(String oldQuery, final String newQuery) {
-
-                //get suggestions based on newQuery
-                //Search Here using newQuery
+                results.clear();
+                searchQuery(newQuery);
+                searchAdapter.notifyDataSetChanged();
 
             }
         });
-
 
     }
 
@@ -72,9 +98,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-
         return super.onCreateOptionsMenu(menu);
-
 
     }
 
@@ -100,15 +124,74 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_houses) {
-            Intent intent = new Intent(MainActivity.this,HouseDisplay.class);
+            Intent intent = new Intent(MainActivity.this, HouseDisplay.class);
             startActivity(intent);
         } else if (id == R.id.nav_characters) {
-            Intent intent = new Intent(MainActivity.this,CharacterDisplay.class);
+            Intent intent = new Intent(MainActivity.this, CharacterDisplay.class);
             startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void searchQuery(String query) {
+
+        final ArrayList<CharacterFormat> searchResults = new ArrayList<>();
+        String querySplit[] = query.trim().split(" ");
+        final String tempCheck = querySplit[0].toLowerCase();
+
+
+        charactersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot childShot : dataSnapshot.getChildren()) {
+
+                    String name = childShot.child("name").getValue(String.class);
+                    String nameLower = name.toLowerCase();
+
+                    if (nameLower.contains(tempCheck)) {
+
+                        try {
+
+                            String playedBy = childShot.child("playedBy").getValue(String.class);
+                            String gender = childShot.child("gender").getValue(String.class);
+                            String born = childShot.child("born").getValue(String.class);
+                            String died = childShot.child("died").getValue(String.class);
+                            String imageUrl = childShot.child("imageUrl").getValue(String.class);
+                            results.add(new CharacterFormat(name, playedBy, gender, born, died, imageUrl));
+                            searchAdapter.notifyDataSetChanged();
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        if (results.size() != 0) {
+                            noResultTextView.setVisibility(View.INVISIBLE);
+                        } else {
+                            searchRecyclerView.setVisibility(View.INVISIBLE);
+                            noResultTextView.setVisibility(View.VISIBLE);
+                        }
+
+                    }
+
+
+
+                    SearchNumber.setText("Search Results (" + results.size() + ")");
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }

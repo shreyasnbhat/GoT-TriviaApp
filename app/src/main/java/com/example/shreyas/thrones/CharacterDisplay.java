@@ -31,7 +31,7 @@ public class CharacterDisplay extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private RecyclerView rv;
     private ProgressBar progress;
-    //private com.turingtechnologies.materialscrollbar.DragScrollBar scrollBar;
+
     private TextView mTextView;
 
     @Override

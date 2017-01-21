@@ -19,6 +19,11 @@
 
     <style name="SearchView">
         <item name="floatingSearch_backgroundColor">@color/colorPrimary</item>
+        <item name="floatingSearch_hintTextColor">@color/white</item>
+        <item name="floatingSearch_leftActionColor">@color/white</item>
+        <item name="floatingSearch_menuItemIconColor">@color/white</item>
+        <item name="floatingSearch_actionMenuOverflowColor">@color/white</item>
+
 
     </style>
 
