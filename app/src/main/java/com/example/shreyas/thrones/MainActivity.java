@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -36,13 +37,13 @@ public class MainActivity extends AppCompatActivity
 
     private ListView mDrawerList;
     private DatabaseReference mDatabase;
-    private DatabaseReference charactersRef;
+    private DatabaseReference charactersRef,houseRef;
     private FloatingSearchView searchView;
     private TextView noResultTextView;
     private TextView SearchNumber;
-    private ArrayList<CharacterFormat> results = new ArrayList<>();
+    private ArrayList<Object> results = new ArrayList<>();
     private RecyclerView searchRecyclerView;
-    private CharactersRVAdapter searchAdapter = new CharactersRVAdapter(results, this);
+    private SearchRVAdapter searchAdapter = new SearchRVAdapter(results, this);
 
 
     @Override
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
         charactersRef = mDatabase.child("Characters");
+        houseRef = mDatabase.child("Houses");
 
         //Reference Views
         searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity
 
         //Recycler View Stuff
         searchRecyclerView.setAdapter(searchAdapter);
-        searchRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+        searchRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         searchRecyclerView.setHasFixedSize(true);
 
         //Navigation Drawer Stuff
@@ -138,7 +140,6 @@ public class MainActivity extends AppCompatActivity
 
     public void searchQuery(String query) {
 
-        final ArrayList<CharacterFormat> searchResults = new ArrayList<>();
         String querySplit[] = query.trim().split(" ");
         final String tempCheck = querySplit[0].toLowerCase();
 
