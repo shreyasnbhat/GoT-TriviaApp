@@ -1,5 +1,8 @@
 package com.example.shreyas.thrones;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.example.shreyas.thrones.Adapters.HousesRVAdapter;
+import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,6 +23,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import io.realm.Realm;
+
 public class HouseDisplay extends AppCompatActivity {
 
 
@@ -25,8 +32,16 @@ public class HouseDisplay extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView rv;
     private DatabaseReference mDatabase;
+    private Realm realm;
     private com.turingtechnologies.materialscrollbar.DragScrollBar scrollBar;
 
+
+    @Override
+    protected void onResume() {
+
+        Log.e("Network Status",isNetworkAvailable() + "");
+        super.onPause();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,15 +148,7 @@ public class HouseDisplay extends AppCompatActivity {
                                     titles.clear();
 
 
-
-
-
-
-
-
-
-
-                                } catch (Exception e) {
+                                    } catch (Exception e) {
                                     e.printStackTrace();
                                 }
 
@@ -169,6 +176,8 @@ public class HouseDisplay extends AppCompatActivity {
         }
         */
 
+
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -177,8 +186,8 @@ public class HouseDisplay extends AppCompatActivity {
 
                     try {
 
+                        String houseId = shot.getKey();
                         String name = shot.child("name").getValue(String.class).trim();
-                        name = name.replace("House ", "");
                         String words = shot.child("words").getValue(String.class).trim();
                         String region = shot.child("region").getValue(String.class).trim();
                         String coatOfArms = shot.child("coatOfArms").getValue(String.class).trim();
@@ -199,6 +208,7 @@ public class HouseDisplay extends AppCompatActivity {
                             temp.setCoatOfArms(coatOfArms);
                         if (!currentLord.equals(""))
                             temp.setCurrentLord(currentLord);
+                        temp.setHouseId(houseId);
 
                         houses.add(temp);
 
@@ -236,6 +246,15 @@ public class HouseDisplay extends AppCompatActivity {
     public String IntegerExtractor(String m) {
         String t = m.replaceAll("[^0-9]", "");
         return t;
+    }
+
+    private boolean isNetworkAvailable() {
+
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+
     }
 
 

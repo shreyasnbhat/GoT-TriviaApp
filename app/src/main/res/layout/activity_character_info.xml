@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:padding="16dp"
-                android:textColor="#E0E0E0"
+                android:textColor="#ffffff"
                 android:textSize="20sp"
 
             />

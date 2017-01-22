@@ -6,16 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.shreyas.thrones.Adapters.CharactersRVAdapter;
+import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -68,7 +67,7 @@ public class HouseInfo extends AppCompatActivity {
         //Get Intent Data
         String houseName = getIntent().getStringExtra("houseName");
         String temp = getIntent().getStringExtra("HousePosition");
-        final int loc = Integer.parseInt(temp);
+        final int loc = Integer.parseInt(temp) - 1;
 
 
         //Toolbar Stuff
@@ -149,7 +148,7 @@ public class HouseInfo extends AppCompatActivity {
 
         //URL Constants for JSON Parsing and data Retrieval from awoiaf MediaWiki page
         String CONSTANT_URL = "http://awoiaf.westeros.org/api.php?&action=query&format=json&prop=extracts&titles=";
-        String url = CONSTANT_URL + "House " + houseName;
+        String url = CONSTANT_URL +  houseName;
         String urlTemp[] = url.split("of");
         url = urlTemp[0];
 
@@ -184,6 +183,7 @@ public class HouseInfo extends AppCompatActivity {
 
                                                         final String responseData = response.body().string();
                                                         JSONObject query = new JSONObject(responseData);
+                                                        Log.e("TAG",query+"");
                                                         JSONObject pages = query.getJSONObject("query").getJSONObject("pages");
                                                         Iterator<String> keyIterator = pages.keys();
                                                         String randomKey;

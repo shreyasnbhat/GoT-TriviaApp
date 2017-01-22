@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1d1d1d</color>
-    <color name="colorPrimaryDark">#0d0d0d</color>
-    <color name="colorAccent">#f44336</color>
+    <color name="colorPrimary">#984b43</color>
+    <color name="colorPrimaryDark">#542824</color>
+    <color name="colorAccent">#233237</color>
 
+    <color name="navyBlue">#18121e</color>
+    <color name="warmYellow">#eac67a</color>
     <!-- Color List -->
     <color name="white">#ffffff</color>
     <color name="blue500">#1E88E5</color>

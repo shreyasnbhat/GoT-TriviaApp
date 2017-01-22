@@ -4,7 +4,7 @@
     android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f44336"
+    android:background="#984b43"
     android:orientation="horizontal"
     tools:context="com.example.shreyas.thrones.MainActivity">
 
@@ -19,6 +19,7 @@
 
         android:id="@+id/search_recycler_view"
         android:layout_width="match_parent"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
@@ -50,6 +51,7 @@
         android:textSize="22sp"
         android:fontFamily="sans-serif-smallcaps"
         android:layout_marginTop="70dp"/>
+
 
 
 

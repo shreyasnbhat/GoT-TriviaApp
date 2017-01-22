@@ -2,7 +2,6 @@ package com.example.shreyas.thrones;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -11,12 +10,13 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.shreyas.thrones.Adapters.CharactersRVAdapter;
+import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.turingtechnologies.materialscrollbar.AlphabetIndicator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,6 +72,8 @@ public class CharacterDisplay extends AppCompatActivity {
 
         String url = "http://www.anapioficeandfire.com/api/characters?page=";
         String temp1;
+
+
 
         //Used to populate data into Firebase
         //When API is updated will need to push app update. As Firebase is copy of API JSON

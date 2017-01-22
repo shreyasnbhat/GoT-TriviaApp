@@ -4,6 +4,9 @@ import android.app.Application;
 
 import com.google.firebase.database.FirebaseDatabase;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Created by Shreyas on 11/4/2016.
  */
@@ -16,6 +19,7 @@ public class Firebase extends Application {
 
         /* Enable disk persistence  */
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
 
     }
 }
