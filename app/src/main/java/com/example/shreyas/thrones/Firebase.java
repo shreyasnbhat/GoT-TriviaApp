@@ -19,6 +19,12 @@ public class Firebase extends Application {
 
         /* Enable disk persistence  */
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        Realm.init(this);
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+                .name("Houses")
+                .deleteRealmIfMigrationNeeded()
+                .schemaVersion(0)
+                .build();
 
 
     }

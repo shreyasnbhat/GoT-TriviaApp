@@ -47,6 +47,12 @@ public class HouseInfo extends AppCompatActivity {
 
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_info);
@@ -148,7 +154,7 @@ public class HouseInfo extends AppCompatActivity {
 
         //URL Constants for JSON Parsing and data Retrieval from awoiaf MediaWiki page
         String CONSTANT_URL = "http://awoiaf.westeros.org/api.php?&action=query&format=json&prop=extracts&titles=";
-        String url = CONSTANT_URL +  houseName;
+        String url = CONSTANT_URL +  "House " + houseName;
         String urlTemp[] = url.split("of");
         url = urlTemp[0];
 

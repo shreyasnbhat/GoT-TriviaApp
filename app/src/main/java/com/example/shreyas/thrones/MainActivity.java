@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.example.shreyas.thrones.Adapters.SearchRVAdapter;
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.DividerFormat;
 import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity
 
     private ListView mDrawerList;
     private DatabaseReference mDatabase;
-    private DatabaseReference charactersRef,houseRef;
+    private DatabaseReference charactersRef, houseRef;
     private FloatingSearchView searchView;
     private TextView noResultTextView;
     private TextView SearchNumber;
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
         searchRecyclerView = (RecyclerView) findViewById(R.id.search_recycler_view);
         noResultTextView = (TextView) findViewById(R.id.no_result);
-        SearchNumber = (TextView)findViewById(R.id.text_result);
+        SearchNumber = (TextView) findViewById(R.id.text_result);
 
         //Recycler View Stuff
         searchRecyclerView.setAdapter(searchAdapter);
@@ -138,6 +140,61 @@ public class MainActivity extends AppCompatActivity
         String querySplit[] = query.trim().split(" ");
         final String tempCheck = querySplit[0].toLowerCase();
 
+        results.add(new DividerFormat("Houses"));
+
+
+        houseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot childShot : dataSnapshot.getChildren()) {
+
+                    String name = childShot.child("name").getValue(String.class);
+                    String nameLower = name.toLowerCase();
+
+                    if (nameLower.contains(tempCheck)) {
+
+                        try {
+
+                            String houseId = childShot.getKey();
+                            String region = childShot.child("region").getValue(String.class);
+                            String coatOfArms = childShot.child("coatOfArms").getValue(String.class);
+                            String words = childShot.child("words").getValue(String.class);
+                            //Need to Implement
+                            ArrayList<String> titles = new ArrayList<String>();
+                            String currentLord = "Jon Snow";
+                            ArrayList<String> members = new ArrayList<String>();
+                            //
+                            results.add(new HouseFormat(houseId, name, region, coatOfArms, words, titles, currentLord, members));
+
+                            searchAdapter.notifyDataSetChanged();
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        if (results.size() != 0) {
+                            noResultTextView.setVisibility(View.INVISIBLE);
+                        } else {
+                            searchRecyclerView.setVisibility(View.INVISIBLE);
+                            noResultTextView.setVisibility(View.VISIBLE);
+                        }
+
+                    }
+
+
+                }
+
+                results.add(new DividerFormat("Characters"));
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         charactersRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -174,8 +231,9 @@ public class MainActivity extends AppCompatActivity
                     }
 
 
-
                 }
+
+
 
 
             }
@@ -186,56 +244,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        houseRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot childShot : dataSnapshot.getChildren()) {
-
-                    String name = childShot.child("name").getValue(String.class);
-                    String nameLower = name.toLowerCase();
-
-                    if (nameLower.contains(tempCheck)) {
-
-                        try {
-
-                            String houseId = childShot.getKey();
-                            String region = childShot.child("region").getValue(String.class);
-                            String coatOfArms = childShot.child("coatOfArms").getValue(String.class);
-                            String words = childShot.child("words").getValue(String.class);
-                            //Need to Implement
-                            ArrayList<String> titles = new ArrayList<String>();
-                            String currentLord = "Jon Snow";
-                            ArrayList<String> members = new ArrayList<String>();
-                            //
-
-                            results.add(new HouseFormat(houseId,name,region,coatOfArms,words,titles,currentLord,members));
-                            searchAdapter.notifyDataSetChanged();
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                        if (results.size() != 0) {
-                            noResultTextView.setVisibility(View.INVISIBLE);
-                        } else {
-                            searchRecyclerView.setVisibility(View.INVISIBLE);
-                            noResultTextView.setVisibility(View.VISIBLE);
-                        }
-
-                    }
-
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
 
     }

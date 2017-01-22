@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.DividerFormat;
 import com.example.shreyas.thrones.ViewHolders.CharacterSearchViewHolder;
 import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.example.shreyas.thrones.ViewHolders.HouseSearchViewHolder;
 import com.example.shreyas.thrones.R;
+import com.example.shreyas.thrones.ViewHolders.SearchItemTypeViewHolder;
 
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private List<Object> searchList;
     private final int CHARACTER = 0;
     private final int HOUSE = 1;
+    private final int DIVIDER = 2;
     private Context mContext;
 
     public SearchRVAdapter(List<Object> searchList, Context context) {
@@ -42,8 +45,10 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         //Used to identify which Type is the object of
         if (searchList.get(position) instanceof CharacterFormat) {
             return CHARACTER;
-        } else {
+        } else if (searchList.get(position) instanceof HouseFormat) {
             return HOUSE;
+        } else {
+            return DIVIDER;
         }
 
     }
@@ -61,6 +66,10 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             case HOUSE:
                 View house = inflater.inflate(R.layout.house_search_item_format, parent, false);
                 viewHolder = new HouseSearchViewHolder(house, mContext);
+                break;
+            case DIVIDER:
+                View divider = inflater.inflate(R.layout.search_item_type_divider_format, parent, false);
+                viewHolder = new SearchItemTypeViewHolder(divider, mContext);
                 break;
 
         }
@@ -81,7 +90,9 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 HouseSearchViewHolder v2 = (HouseSearchViewHolder) holder;
                 configureHouseHolder(v2, position);
                 break;
-            default:
+            case DIVIDER:
+                SearchItemTypeViewHolder v3 = (SearchItemTypeViewHolder) holder;
+                configureDividerHolder(v3, position);
                 break;
         }
 
@@ -111,5 +122,14 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             v.getHouseNameTextView().setText(house.getName());
             v.setHouseId(house.getHouseId());
         }
+    }
+
+    public void configureDividerHolder(SearchItemTypeViewHolder v, int position) {
+
+        DividerFormat divider = (DividerFormat) searchList.get(position);
+        if (divider != null) {
+            v.getItemTypeTextView().setText(divider.getDividerText());
+        }
+
     }
 }

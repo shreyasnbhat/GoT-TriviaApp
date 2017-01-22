@@ -44,139 +44,12 @@ public class HouseDisplay extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_house_display);
+    protected void onStart() {
+        super.onStart();
 
-        //Firebase Stuff
+        //Firebase Reference
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
-
-        //Reference Views
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        rv = (RecyclerView) findViewById(R.id.houses_rv);
-        scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
-
-        //Toolbar Stuff
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setTitle("Houses");
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
-
-        final HousesRVAdapter adapter = new HousesRVAdapter(houses, this);
-
-        //Recycler View Stuff
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setHasFixedSize(true);
-        scrollBar.setIndicator(new AlphabetIndicator(this),true);
-
-        //URLS for JSON Parsing
-        String url = "http://www.anapioficeandfire.com/api/houses?page=";
-        String temp1;
-
-
-
-        /*for(int k=1;k<=45;k++) {
-
-            temp1 = url;
-            temp1 = temp1+""+k;
-
-            JsonArrayRequest jsObjRequest = new JsonArrayRequest
-                    (Request.Method.GET, temp1, null, new Response.Listener<JSONArray>() {
-
-                        @Override
-                        public void onResponse(JSONArray response) {
-
-                             String id;
-                             String name;
-                             String region;
-                             String coatOfArms;
-                             String words;
-                             ArrayList<String> titles = new ArrayList<>();
-                             String currentLord;
-                             ArrayList<String> members = new ArrayList<>();
-
-                            for (int i = 0; i < response.length(); i++) {
-                                try {
-
-                                    //Derefernce JSON
-                                    JSONObject obj = response.getJSONObject(i);
-
-                                    id = IntegerExtractor(obj.getString("url"));
-                                    name = obj.getString("name");
-                                    region = obj.getString("region");
-                                    coatOfArms = obj.getString("coatOfArms");
-                                    words = obj.getString("words");
-                                    currentLord = obj.getString("currentLord");
-                                    JSONArray titleArray = obj.getJSONArray("titles");
-                                    for(int f = 0; f < titleArray.length();f++)
-                                    {
-                                        try {
-
-                                            titles.add(titleArray.get(f).toString());
-                                        }
-                                        catch (Exception e)
-                                        {
-                                            e.printStackTrace();
-                                        }
-                                    }
-
-                                    JSONArray memberArray = obj.getJSONArray("swornMembers");
-                                    for(int f = 0; f < memberArray.length();f++)
-                                    {
-
-
-                                        members.add(IntegerExtractor(memberArray.get(f).toString()));
-                                    }
-
-
-
-
-
-                                    mDatabase.child(id).child("name").setValue(name);
-                                    mDatabase.child(id).child("region").setValue(region);
-                                    mDatabase.child(id).child("coatOfArms").setValue(coatOfArms);
-                                    mDatabase.child(id).child("words").setValue(words);
-                                    mDatabase.child(id).child("currentLord").setValue(currentLord);
-                                    mDatabase.child(id).child("titles").setValue(titles);
-                                    mDatabase.child(id).child("swornMembers").setValue(members);
-
-                                    members.clear();
-
-                                    titles.clear();
-
-
-                                    } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                                //houses.add(temp);
-
-                                //listAdpater.notifyDataSetChanged();
-
-
-                            }
-
-
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-
-                            Log.v("Error", "Volley Error");
-                        }
-                    });
-
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
-            requestQueue.add(jsObjRequest);
-
-        }
-        */
-
-
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -228,6 +101,38 @@ public class HouseDisplay extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_house_display);
+
+        //Reference Views
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        rv = (RecyclerView) findViewById(R.id.houses_rv);
+        scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
+
+        //Toolbar Stuff
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setTitle("Houses");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
+        final HousesRVAdapter adapter = new HousesRVAdapter(houses, this);
+
+        //Recycler View Stuff
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setHasFixedSize(true);
+        scrollBar.setIndicator(new AlphabetIndicator(this),true);
+
+        //URLS for JSON Parsing
+        String url = "http://www.anapioficeandfire.com/api/houses?page=";
+        String temp1;
+
         class HouseDetailsComparator implements Comparator<HouseFormat> {
 
             @Override
@@ -238,8 +143,8 @@ public class HouseDisplay extends AppCompatActivity {
             }
         }
 
-        Collections.sort(houses, new HouseDetailsComparator());
-        adapter.notifyDataSetChanged();
+        //Collections.sort(houses, new HouseDetailsComparator());
+        //adapter.notifyDataSetChanged();
 
     }
 
@@ -249,13 +154,15 @@ public class HouseDisplay extends AppCompatActivity {
     }
 
     private boolean isNetworkAvailable() {
-
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+    }
 }
