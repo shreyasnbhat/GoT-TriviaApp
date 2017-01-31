@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_0fa252664c1d4e0600ffef51d6ef6fe228b53b1b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c10091a128e47ed4ef804bd753c0f45745699756">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-0.6.1_8968a06ebc0646a12bed8749e31e6c81a5e69141.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="32a5a566ae197603d0bed3e6d1d275f6a771564e">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-9.0.0_9c4cbc637dc6de703c4bda75af4d0c249edcb6af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_496e53b31749f77e034c7d5e9e96298dd457ee62.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.github.arimorty/floatingsearchview/2.0.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="31c1fe8583cbb7f6a9f11bb7010a747e79712335">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.github.arimorty-floatingsearchview-2.0.3_d38efd7021cd0e48e019c7774080272a6d15f2ea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_809c3291c9f3f5252e8780e2e492012b4fd4163f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d9a0df273503a302103dff1ba65718c46c7c8262.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/library-2.4.0_85d7b789a3abb60f95b97671fe34330dbf5f6447.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-9.0.0_99267338e006ae3b772ec6a80c86dc19868e69f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="dd4c42401d36342901ac4280fb92a831f8007f3d">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-0.6.1_12fd5cfb85f64b461dbea9f27eeb33dab92ad5eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.volley-volley-1.0.0_d8a81707c41ad8abba4e79f09cf6222c37f9bce6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4_f67e3b6866082d58270a5bbfb2898d0e847413eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_c988135485bcf3687988ae72238f5a8ef46114d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.10.1/645f1ad2f6f4cbad1cde4c483eae71e4051be6ef/jsoup-1.10.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="645f1ad2f6f4cbad1cde4c483eae71e4051be6ef">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/jsoup-1.10.1_4253f189688edebf33a07c10d976b4aa791801df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_fd9cd0b81341b222a83a59a17bbd9b225a464be7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-9.0.0_7d18574bb5e74e68e65b9414506b95be4e06722e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_5f3508e8b3054b8e11d35aaffceccd9513f7a660.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.0.0_c934d33abf1feca63fc9ff3e24bdf939c7d13eed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-9.0.0_c49f611428d97774ab7cc4da05c25c7e6d516dc1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="ef5c5c2afbd174d55cf1cfcac7d0346cbc4c1322">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-9.0.0_96898a12f053a42ec067acdeec65060eb772b3d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/io.realm/realm-annotations/2.3.0/5c43618ae2e514637c58474e9e9663c8f054b72f/realm-annotations-2.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="5c43618ae2e514637c58474e9e9663c8f054b72f">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/realm-annotations-2.3.0_b86ecc6d36900790181cfa4f8231d601a808b48e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_6a5e504af0c9be84c5632ca797564d022c5ccb7e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="af0fe468c884e2d153cf564326b23b54ff0040ce">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-0.6.1_ff55951ce58c696c5874ba041474aee9695d417d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_83d0e1f60a90e2a24472fbb77eeb96ea70cf2072.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_e6520a4749b9af99518277618c22d18e43367f67.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.2/ccde00f7ccc77af5a6d5752e2cb21f6d8998289f/okhttp-3.4.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="ccde00f7ccc77af5a6d5752e2cb21f6d8998289f">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/okhttp-3.4.2_2c0b67c89ce82ea4119614aa1685548704450232.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.0.0_bf81e1bbc50cf6b1511010b6c1b38663db7f09b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_d6f8570197560834f936d259bf68d6cb51a13aeb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.getkeepsafe.relinker/relinker/1.2.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="b64dd5f01bc37de289f90fd59299b0c76d119611">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.getkeepsafe.relinker-relinker-1.2.2_fd113c3b8ba009220836f99cf1f3255bcf420020.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_7b8628a950ae88a492e0075383589552030a0c05.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/okio-1.9.0_5130f9dc7148960884812b85f626a04b2eee3354.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/io.realm/realm-android-library/2.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="d483779dc728392fefecb9a9650d01bac9e04d3b">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/io.realm-realm-android-library-2.3.0_cd3ac4b20cf5d224ea9cf8c434756dec37dd75d7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.turingtechnologies.materialscrollbar/lib/10.1.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="217f7bb1d8656234f84d4d1c3d5a9220d6ab4ce0">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.turingtechnologies.materialscrollbar-lib-10.1.4_7e0f140df73826cfc0afa0180e733006abba4c41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/24.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="4add8aa95c9f4e9a2ad64b7e2bf08e97e28955c1">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-24.1.1_95c1c3a3cda840d5c30dabbc6ebce7b84242adf7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_e6220e931e237b877256537bd438d2a719865bae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-9.0.0_1401a91bae12c98aec0e94c44e8dce52d71aadfa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_47bb63045b62022062582e50314938411c899fdc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.bartoszlipinski/viewpropertyobjectanimator/1.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="1828dd75d357690efb2c5f4326804e2f7ad21f6c">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.bartoszlipinski-viewpropertyobjectanimator-1.2.0_37619523ec0d0b2ee262c6b4244b1a483039abdc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_fb1040ab19e3e3d9a35c4e80e47f34a5a43711b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.0.0_404d9b1cf5a00bb767c7dca9486a90d398a4a196.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="eb9817e26186e1a267cdd14211742ecc793de32e">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-0.6.1_e3aae4d7c11afd049973b23c78854cf43d460e10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_39a34731dc6e652a4084304dc78ed443d980bad8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_df9f337ddd4094600cf2c31acbf4e7cc52f45b85.jar" />
+    </item>
+
+</items>

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.example.shreyas.thrones.HouseInfo;
 import com.example.shreyas.thrones.R;
+import com.example.shreyas.thrones.RealmHouseFormat;
 import com.turingtechnologies.materialscrollbar.INameableAdapter;
 
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.List;
 
 public class HousesRVAdapter extends RecyclerView.Adapter<HousesRVAdapter.ViewHolder> implements INameableAdapter {
 
-   private List<HouseFormat> houseList;
+   private List<RealmHouseFormat> houseList;
 
    private Context mContext;
 
@@ -71,7 +72,7 @@ public class HousesRVAdapter extends RecyclerView.Adapter<HousesRVAdapter.ViewHo
 
 
     //Contructor for HouseRV
-    public HousesRVAdapter(List<HouseFormat> houseList, Context context) {
+    public HousesRVAdapter(List<RealmHouseFormat> houseList, Context context) {
         this.houseList = houseList;
         this.mContext = context;
     }
@@ -92,7 +93,7 @@ public class HousesRVAdapter extends RecyclerView.Adapter<HousesRVAdapter.ViewHo
     public void onBindViewHolder(HousesRVAdapter.ViewHolder holder, int position) {
 
 
-        HouseFormat house = houseList.get(position);
+        RealmHouseFormat house = houseList.get(position);
         holder.housename.setText(house.getName().replace("House ",""));
         holder.words.setText(house.getWords());
         holder.coatOfArms.setText(house.getCoatOfArms());

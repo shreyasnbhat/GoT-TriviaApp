@@ -29,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import io.realm.RealmList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,7 +39,6 @@ public class MainActivity extends AppCompatActivity
     private DatabaseReference charactersRef, houseRef;
     private FloatingSearchView searchView;
     private TextView noResultTextView;
-    private TextView SearchNumber;
     private ArrayList<Object> results = new ArrayList<>();
     private RecyclerView searchRecyclerView;
     private SearchRVAdapter searchAdapter = new SearchRVAdapter(results, this);
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity
         searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
         searchRecyclerView = (RecyclerView) findViewById(R.id.search_recycler_view);
         noResultTextView = (TextView) findViewById(R.id.no_result);
-        SearchNumber = (TextView) findViewById(R.id.text_result);
 
         //Recycler View Stuff
         searchRecyclerView.setAdapter(searchAdapter);
@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity
 
         results.add(new DividerFormat("Houses"));
 
-
         houseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -161,11 +160,12 @@ public class MainActivity extends AppCompatActivity
                             String coatOfArms = childShot.child("coatOfArms").getValue(String.class);
                             String words = childShot.child("words").getValue(String.class);
                             //Need to Implement
-                            ArrayList<String> titles = new ArrayList<String>();
+                            RealmList<RealmString> titles = new RealmList<>();
                             String currentLord = "Jon Snow";
-                            ArrayList<String> members = new ArrayList<String>();
+                            RealmList<RealmString> members = new RealmList<>();
                             //
-                            results.add(new HouseFormat(houseId, name, region, coatOfArms, words, titles, currentLord, members));
+
+                            results.add(new RealmHouseFormat(houseId, name, region, coatOfArms, words, titles, currentLord, members));
 
                             searchAdapter.notifyDataSetChanged();
 

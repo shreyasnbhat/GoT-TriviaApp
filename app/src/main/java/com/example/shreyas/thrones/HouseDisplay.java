@@ -28,7 +28,7 @@ import io.realm.Realm;
 public class HouseDisplay extends AppCompatActivity {
 
 
-    private ArrayList<HouseFormat> houses = new ArrayList<>();
+    private ArrayList<RealmHouseFormat> houses = new ArrayList<>();
     private Toolbar toolbar;
     private RecyclerView rv;
     private DatabaseReference mDatabase;
@@ -66,7 +66,7 @@ public class HouseDisplay extends AppCompatActivity {
                         String coatOfArms = shot.child("coatOfArms").getValue(String.class).trim();
                         String LordID = IntegerExtractor(shot.child("currentLord").getValue(String.class).trim());
 
-                        HouseFormat temp = new HouseFormat(name);
+                        RealmHouseFormat temp = new RealmHouseFormat(name);
                         String currentLord="";
                         if(dataSnapshot.child("Characters").child(LordID).child("name").getValue(String.class)!=null)
                         {
@@ -133,18 +133,7 @@ public class HouseDisplay extends AppCompatActivity {
         String url = "http://www.anapioficeandfire.com/api/houses?page=";
         String temp1;
 
-        class HouseDetailsComparator implements Comparator<HouseFormat> {
 
-            @Override
-            public int compare(HouseFormat t1, HouseFormat t2) {
-
-                return t1.getName().compareTo(t2.getName());
-
-            }
-        }
-
-        //Collections.sort(houses, new HouseDetailsComparator());
-        //adapter.notifyDataSetChanged();
 
     }
 

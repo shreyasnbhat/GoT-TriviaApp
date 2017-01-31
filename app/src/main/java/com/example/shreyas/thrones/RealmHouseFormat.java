@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
 /**
- * Created by Shreyas on 1/22/2017.
+ * Created by Shreyas on 11/4/2016.
  */
 
-public class RealmHouseFormat extends RealmObject {
+public class RealmHouseFormat extends RealmObject{
 
     @PrimaryKey
-    private String houseId;
+    private String houseId="";
 
     private String name = "";
     private String region = "";
@@ -51,15 +52,15 @@ public class RealmHouseFormat extends RealmObject {
         this.members = members;
     }
 
-    public RealmHouseFormat() {
-    }
 
-    public RealmHouseFormat(String houseId,String name) {
 
-        this.houseId = houseId;
+    public RealmHouseFormat() {}
+
+    public RealmHouseFormat(String name) {
+
         this.name = name;
         this.region = " - ";
-        this.currentLord = " - ";
+        this.currentLord=" - ";
         this.coatOfArms = " - ";
         this.words = " - ";
     }
@@ -105,6 +106,11 @@ public class RealmHouseFormat extends RealmObject {
         return members;
     }
 
+    public String getHouseId() {
+        return houseId;
+    }
 
-
+    public void setHouseId(String houseId) {
+        this.houseId = houseId;
+    }
 }

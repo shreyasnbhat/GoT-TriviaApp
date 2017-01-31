@@ -3,18 +3,21 @@ package com.example.shreyas.thrones.Adapters;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.DividerFormat;
+import com.example.shreyas.thrones.RealmHouseFormat;
 import com.example.shreyas.thrones.ViewHolders.CharacterSearchViewHolder;
 import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.example.shreyas.thrones.ViewHolders.HouseSearchViewHolder;
 import com.example.shreyas.thrones.R;
 import com.example.shreyas.thrones.ViewHolders.SearchItemTypeViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +26,7 @@ import java.util.List;
 
 public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Object> searchList;
+    private List<Object> searchList = new ArrayList<>();
     private final int CHARACTER = 0;
     private final int HOUSE = 1;
     private final int DIVIDER = 2;
@@ -32,6 +35,7 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public SearchRVAdapter(List<Object> searchList, Context context) {
         this.searchList = searchList;
         this.mContext = context;
+
     }
 
     @Override
@@ -45,7 +49,7 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         //Used to identify which Type is the object of
         if (searchList.get(position) instanceof CharacterFormat) {
             return CHARACTER;
-        } else if (searchList.get(position) instanceof HouseFormat) {
+        } else if (searchList.get(position) instanceof RealmHouseFormat) {
             return HOUSE;
         } else {
             return DIVIDER;
@@ -117,7 +121,7 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public void configureHouseHolder(HouseSearchViewHolder v, int position) {
 
-        HouseFormat house = (HouseFormat) searchList.get(position);
+        RealmHouseFormat house = (RealmHouseFormat) searchList.get(position);
         if (house != null) {
             v.getHouseNameTextView().setText(house.getName());
             v.setHouseId(house.getHouseId());
