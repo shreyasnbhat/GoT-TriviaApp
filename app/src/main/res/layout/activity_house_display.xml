@@ -11,7 +11,6 @@
         android:title="Houses"
         android:titleTextColor="#ffffff"
         app:theme="@style/ToolbarStyle"
-
         android:background="@color/colorPrimary"
         >
 

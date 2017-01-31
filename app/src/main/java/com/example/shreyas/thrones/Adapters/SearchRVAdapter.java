@@ -3,16 +3,14 @@ package com.example.shreyas.thrones.Adapters;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.DividerFormat;
-import com.example.shreyas.thrones.RealmHouseFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.example.shreyas.thrones.ViewHolders.CharacterSearchViewHolder;
-import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.example.shreyas.thrones.ViewHolders.HouseSearchViewHolder;
 import com.example.shreyas.thrones.R;
 import com.example.shreyas.thrones.ViewHolders.SearchItemTypeViewHolder;

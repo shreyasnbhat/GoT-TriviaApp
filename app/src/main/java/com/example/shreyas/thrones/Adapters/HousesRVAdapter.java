@@ -10,13 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.example.shreyas.thrones.HouseInfo;
 import com.example.shreyas.thrones.R;
-import com.example.shreyas.thrones.RealmHouseFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.turingtechnologies.materialscrollbar.INameableAdapter;
 
 import java.util.List;
+
+import io.realm.Realm;
 
 
 /**
@@ -28,6 +29,8 @@ public class HousesRVAdapter extends RecyclerView.Adapter<HousesRVAdapter.ViewHo
    private List<RealmHouseFormat> houseList;
 
    private Context mContext;
+
+   private Realm mDatabaseRealm;
 
 
    //View Holder Definition
@@ -42,15 +45,27 @@ public class HousesRVAdapter extends RecyclerView.Adapter<HousesRVAdapter.ViewHo
            currentLord = (TextView)v.findViewById(R.id.currentLord);
            region = (TextView)v.findViewById(R.id.region);
            coatOfArms = (TextView)v.findViewById(R.id.coatOfArms);
+
            v.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
                    Intent intent = new Intent(mContext,HouseInfo.class);
                    String toSendHouseName = housename.getText().toString();
-                   toSendHouseName = toSendHouseName.replace("House ","");
-                   final int loc = getAdapterPosition() + 1;
+                   RealmHouseFormat house = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("name","House " + toSendHouseName).findFirst();
+                   final int loc = Integer.valueOf(house.getHouseId());
+                   String words = house.getWords();
+                   String currentLord = house.getCurrentLord();
+                   String region = house.getRegion();
+                   String coatOfArms = house.getCoatOfArms();
+
+                   //Intent Extras
+                   //Parcelable to be used later
                    intent.putExtra("houseName",toSendHouseName);
                    intent.putExtra("HousePosition",loc+"");
+                   intent.putExtra("words",words);
+                   intent.putExtra("currentLord",currentLord);
+                   intent.putExtra("region",region);
+                   intent.putExtra("coatOfArms",coatOfArms);
                    mContext.startActivity(intent);
 
 
@@ -75,6 +90,7 @@ public class HousesRVAdapter extends RecyclerView.Adapter<HousesRVAdapter.ViewHo
     public HousesRVAdapter(List<RealmHouseFormat> houseList, Context context) {
         this.houseList = houseList;
         this.mContext = context;
+        mDatabaseRealm = Realm.getDefaultInstance();
     }
 
     private Context getContext() {

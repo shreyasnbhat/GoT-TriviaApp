@@ -11,13 +11,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.example.shreyas.thrones.Adapters.HousesRVAdapter;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.turingtechnologies.materialscrollbar.AlphabetIndicator;
+
+import java.util.Comparator;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -50,8 +52,6 @@ public class HouseDisplay extends AppCompatActivity {
         //Initialize Realm here
         mDatabaseRealm = Realm.getDefaultInstance();
 
-        Log.e("PAth",mDatabaseRealm.getPath());
-
         //Firebase Reference
         mDatabaseFirebase.keepSynced(true);
 
@@ -67,6 +67,15 @@ public class HouseDisplay extends AppCompatActivity {
         mChildEventListener = generateChildEventListener();
 
         mDatabaseFirebase.addChildEventListener(mChildEventListener);
+
+        //Sorting Operation
+        //Could be moved to an AsyncTask
+        houseList.sort(new Comparator<RealmHouseFormat>() {
+            @Override
+            public int compare(RealmHouseFormat realmHouseFormat, RealmHouseFormat t1) {
+                return IntegerConvertor(realmHouseFormat.getHouseId()) - IntegerConvertor(t1.getHouseId());
+            }
+        });
 
     }
 
@@ -91,10 +100,6 @@ public class HouseDisplay extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setHasFixedSize(true);
 
-        //URLS for JSON Parsing
-        String url = "http://www.anapioficeandfire.com/api/houses?page=";
-        String temp1;
-
     }
 
     public String IntegerExtractor(String m) {
@@ -117,11 +122,12 @@ public class HouseDisplay extends AppCompatActivity {
 
                 try{
 
+                    //Firebase Data
                     final String primaryKey = dataSnapshot.getKey();
                     final String name = dataSnapshot.child("name").getValue(String.class);
                     final String region = dataSnapshot.child("region").getValue(String.class);
                     final String words = dataSnapshot.child("words").getValue(String.class);
-                    final String currentLord = IntegerExtractor(dataSnapshot.child("currentLord").getValue(String.class));
+                    final String currentLord = dataSnapshot.child("currentLord").getValue(String.class);
                     final String coatOfArms = dataSnapshot.child("coatOfArms").getValue(String.class);
 
 
@@ -130,7 +136,7 @@ public class HouseDisplay extends AppCompatActivity {
 
                     if(testInRealm==null) {
 
-                        mDatabaseRealm.executeTransaction(new Realm.Transaction() {
+                        mDatabaseRealm.executeTransactionAsync(new Realm.Transaction() {
                             @Override
                             public void execute(Realm realm) {
 
@@ -138,18 +144,14 @@ public class HouseDisplay extends AppCompatActivity {
                                 houseToBeAdded.setName(name);
                                 houseToBeAdded.setCurrentLord(currentLord);
                                 houseToBeAdded.setCoatOfArms(coatOfArms);
-                                //houseToBeAdded.setMembers(house.getMembers());
                                 houseToBeAdded.setWords(words);
                                 houseToBeAdded.setRegion(region);
-                                //houseToBeAdded.setTitles(house.getTitles());
 
                             }
                         });
 
                         houseList.add(new RealmHouseFormat(primaryKey,name,region,coatOfArms,words,null,currentLord,null));
-                        houseList.sort("houseId",Sort.ASCENDING);
-                        houseAdapter.notifyDataSetChanged();
-                        //houseAdapter.notifyItemInserted(houseList.size() - 1);
+                        houseAdapter.notifyItemInserted(houseList.size() - 1);
 
                     }
                     else
@@ -185,29 +187,38 @@ public class HouseDisplay extends AppCompatActivity {
                     //Parse error could occur
                     try{
 
+                        //Firebase Data
                         final String name = dataSnapshot.child("name").getValue(String.class);
                         final String region = dataSnapshot.child("region").getValue(String.class);
                         final String words = dataSnapshot.child("words").getValue(String.class);
                         final String currentLord = dataSnapshot.child("currentLord").getValue(String.class);
                         final String coatOfArms = dataSnapshot.child("coatOfArms").getValue(String.class);
 
+                        //Realm Data
+                        String realmName = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getName();
+                        String realmRegion = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getRegion();
+                        String realmWords = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getWords();
+                        String realmLord = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getCurrentLord();
+                        String realmCoat = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getCoatOfArms();
 
-                        mDatabaseRealm.executeTransaction(new Realm.Transaction() {
-                            @Override
-                            public void execute(Realm realm) {
-                                RealmHouseFormat houseToBeChanged = realm.createObject(RealmHouseFormat.class,primaryKey);
-                                houseToBeChanged.setName(name);
-                                houseToBeChanged.setCurrentLord(currentLord);
-                                houseToBeChanged.setCoatOfArms(coatOfArms);
-                                //houseToBeChanged.setMembers(house.getMembers());
-                                houseToBeChanged.setWords(words);
-                                houseToBeChanged.setRegion(region);
-                                //houseToBeChanged.setTitles(house.getTitles());
+                        //Tweak to avoid un-necessary updation of data
+                        boolean ifAnyThingChanged = (realmName.equalsIgnoreCase(name) && realmRegion.equalsIgnoreCase(region) && realmWords.equalsIgnoreCase(words) && realmCoat.equalsIgnoreCase(coatOfArms) && realmLord.equalsIgnoreCase(currentLord));
 
-                            }
-                        });
-                        sortDataSet();
+                        if(!ifAnyThingChanged) {
+                            mDatabaseRealm.executeTransactionAsync(new Realm.Transaction() {
+                                @Override
+                                public void execute(Realm realm) {
+                                    RealmHouseFormat houseToBeChanged = realm.where(RealmHouseFormat.class).equalTo("houseId", primaryKey).findFirst();
+                                    houseToBeChanged.setName(name);
+                                    houseToBeChanged.setCurrentLord(currentLord);
+                                    houseToBeChanged.setCoatOfArms(coatOfArms);
+                                    houseToBeChanged.setWords(words);
+                                    houseToBeChanged.setRegion(region);
+                                }
+                            });
+                        }
                         houseAdapter.notifyDataSetChanged();
+                        //sortDataSet();
 
                     }
                     catch (Exception e){
@@ -236,6 +247,8 @@ public class HouseDisplay extends AppCompatActivity {
             }
         };
 
+
+
         return listener;
 
     }
@@ -247,8 +260,7 @@ public class HouseDisplay extends AppCompatActivity {
 
     private void sortDataSet() {
 
-        houseList.sort(new String[]{"houseId", "name", "words", "coatOfArms", "region"},
-                new Sort[]{Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING});
+        Log.e("Sort","Need to Sort");
 
     }
 
@@ -256,6 +268,7 @@ public class HouseDisplay extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        houseList.clear();
 
     }
 
@@ -265,5 +278,10 @@ public class HouseDisplay extends AppCompatActivity {
         mDatabaseFirebase.removeEventListener(mChildEventListener);
         mDatabaseRealm.close();
 
+    }
+
+    public int IntegerConvertor(String s)
+    {
+        return Integer.valueOf(s);
     }
 }

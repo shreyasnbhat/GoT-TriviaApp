@@ -38,13 +38,13 @@ import okhttp3.Response;
 public class HouseInfo extends AppCompatActivity {
 
     private Toolbar houseToolbar;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();;
     private RecyclerView swornMemberRecyclerView;
     private ArrayList<CharacterFormat> swornMembersList = new ArrayList<>();
     private TextView errorText;
     private ProgressBar progress;
     private SimpleDraweeView image;
-
+    private TextView regionTextView,wordsTextView,lordTextView;
 
     @Override
     protected void onStart() {
@@ -58,7 +58,6 @@ public class HouseInfo extends AppCompatActivity {
         setContentView(R.layout.activity_house_info);
 
         //Firebase Stuff
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
 
         //Reference Views
@@ -67,12 +66,19 @@ public class HouseInfo extends AppCompatActivity {
         errorText = (TextView) findViewById(R.id.error_text);
         progress = (ProgressBar)findViewById(R.id.progressbar);
         image = (SimpleDraweeView)findViewById(R.id.house_image);
+        regionTextView = (TextView)findViewById(R.id.region_details);
+        wordsTextView = (TextView)findViewById(R.id.words_details);
+        lordTextView = (TextView)findViewById(R.id.lord_details);
 
         progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFFF"), android.graphics.PorterDuff.Mode.SRC_ATOP);
 
         //Get Intent Data
         String houseName = getIntent().getStringExtra("houseName");
         String temp = getIntent().getStringExtra("HousePosition");
+        String words = getIntent().getStringExtra("words");
+        String currentLord = getIntent().getStringExtra("currentLord");
+        String region = getIntent().getStringExtra("region");
+        String coatOfArms = getIntent().getStringExtra("coatOfArms");
         final int loc = Integer.parseInt(temp) - 1;
 
 
@@ -82,6 +88,9 @@ public class HouseInfo extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         houseToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
+        //Setup Wiki TextViews
+        setupWikiTextViews(words,currentLord,region);
 
 
         //ArrayAdapter Stuff
@@ -149,8 +158,6 @@ public class HouseInfo extends AppCompatActivity {
 
        Uri imageUri = Uri.parse("http://img1.rnkr-static.com/user_node_img/50025/1000492231/C350/rickard-stark-tv-characters-photo-u1.jpg");
        image.setImageURI(imageUri);
-
-
 
         //URL Constants for JSON Parsing and data Retrieval from awoiaf MediaWiki page
         String CONSTANT_URL = "http://awoiaf.westeros.org/api.php?&action=query&format=json&prop=extracts&titles=";
@@ -235,5 +242,21 @@ public class HouseInfo extends AppCompatActivity {
         );
 
 
+    }
+
+    public void setupWikiTextViews(String words,String currentLord,String region){
+
+        if(region!=null)
+        {
+            regionTextView.setText(region);
+        }
+        if(currentLord!=null)
+        {
+            lordTextView.setText(currentLord.replaceAll("[^0-9]",""));
+        }
+        if(words!=null)
+        {
+            wordsTextView.setText(words);
+        }
     }
 }
