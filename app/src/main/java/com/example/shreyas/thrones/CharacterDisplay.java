@@ -195,7 +195,7 @@ public class CharacterDisplay extends AppCompatActivity {
 
                }
 
-               characters = removeDuplicates(characters);
+               //characters = removeDuplicates(characters);
                adapter.notifyDataSetChanged();
            }
 
