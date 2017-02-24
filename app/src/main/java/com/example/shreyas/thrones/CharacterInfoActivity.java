@@ -65,8 +65,7 @@ public class CharacterInfoActivity extends AppCompatActivity {
         String gender = getIntent().getStringExtra("gender");
         String imageUrl = getIntent().getStringExtra("imageUrl");
 
-        Log.e("PLAYED BY",playedBy);
-        Log.e("GENDER",gender);
+
 
         //Firebase Stuff
         mDatabase = FirebaseDatabase.getInstance().getReference();

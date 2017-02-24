@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.shreyas.thrones.Adapters.CharactersRVAdapter;
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,7 +41,7 @@ public class HouseInfo extends AppCompatActivity {
     private Toolbar houseToolbar;
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();;
     private RecyclerView swornMemberRecyclerView;
-    private ArrayList<CharacterFormat> swornMembersList = new ArrayList<>();
+    private ArrayList<RealmCharacterFormat> swornMembersList = new ArrayList<>();
     private TextView errorText;
     private ProgressBar progress;
     private SimpleDraweeView image;
@@ -65,7 +66,7 @@ public class HouseInfo extends AppCompatActivity {
         swornMemberRecyclerView = (RecyclerView) findViewById(R.id.sworn_member_recycler_view);
         errorText = (TextView) findViewById(R.id.error_text);
         progress = (ProgressBar)findViewById(R.id.progressbar);
-        image = (SimpleDraweeView)findViewById(R.id.house_image);
+        //image = (SimpleDraweeView)findViewById(R.id.house_image);
         regionTextView = (TextView)findViewById(R.id.region_details);
         wordsTextView = (TextView)findViewById(R.id.words_details);
         lordTextView = (TextView)findViewById(R.id.lord_details);
@@ -113,6 +114,7 @@ public class HouseInfo extends AppCompatActivity {
 
                         try {
 
+                            String key = dataSnapshot.child("Characters").child(temp).getKey();
                             String name = dataSnapshot.child("Characters").child(temp).child("name").getValue(String.class);
                             String playedBy = dataSnapshot.child("Characters").child(temp).child("playedBy").getValue(String.class);
                             String gender = dataSnapshot.child("Characters").child(temp).child("gender").getValue(String.class);
@@ -123,7 +125,7 @@ public class HouseInfo extends AppCompatActivity {
 
                             if (name != null) {
 
-                                swornMembersList.add(new CharacterFormat(name, playedBy, gender, born, died, imageUrl));
+                                swornMembersList.add(new RealmCharacterFormat(key,name, playedBy, gender, born, died, imageUrl));
                                 adapter.notifyDataSetChanged();
 
                             }
@@ -157,7 +159,7 @@ public class HouseInfo extends AppCompatActivity {
 
 
        Uri imageUri = Uri.parse("http://img1.rnkr-static.com/user_node_img/50025/1000492231/C350/rickard-stark-tv-characters-photo-u1.jpg");
-       image.setImageURI(imageUri);
+       //image.setImageURI(imageUri);
 
         //URL Constants for JSON Parsing and data Retrieval from awoiaf MediaWiki page
         String CONSTANT_URL = "http://awoiaf.westeros.org/api.php?&action=query&format=json&prop=extracts&titles=";

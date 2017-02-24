@@ -60,8 +60,7 @@ public class HouseDisplay extends AppCompatActivity {
                 findAllSorted(new String[]{"houseId", "name", "words", "coatOfArms", "region"},
                         new Sort[]{Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING}));
 
-        houseAdapter = new HousesRVAdapter(houseList,this);
-        rv.setAdapter(houseAdapter);
+
         scrollBar.setIndicator(new AlphabetIndicator(this),true);
 
         mChildEventListener = generateChildEventListener();
@@ -97,6 +96,8 @@ public class HouseDisplay extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
         //Recycler View Stuff
+        houseAdapter = new HousesRVAdapter(houseList,this);
+        rv.setAdapter(houseAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setHasFixedSize(true);
 
@@ -119,6 +120,8 @@ public class HouseDisplay extends AppCompatActivity {
         ChildEventListener listener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+
 
                 try{
 
