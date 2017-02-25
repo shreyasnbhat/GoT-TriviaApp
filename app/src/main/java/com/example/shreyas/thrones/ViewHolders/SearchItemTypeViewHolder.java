@@ -1,6 +1,7 @@
 package com.example.shreyas.thrones.ViewHolders;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ public class SearchItemTypeViewHolder extends RecyclerView.ViewHolder {
     public SearchItemTypeViewHolder(View itemView, Context context) {
         super(itemView);
         itemTypeText = (TextView)itemView.findViewById(R.id.itemType);
+        Typeface face = Typeface.createFromAsset(context.getAssets(), "fonts/helsinki.ttf");
+        itemTypeText.setTypeface(face);
         mContext = context;
 
 

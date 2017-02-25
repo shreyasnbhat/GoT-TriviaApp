@@ -11,12 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.example.shreyas.thrones.Adapters.HousesRVAdapter;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.turingtechnologies.materialscrollbar.AlphabetIndicator;
 
 import java.util.Comparator;
@@ -25,6 +27,8 @@ import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.Sort;
 
+import static com.example.shreyas.thrones.R.id.currentLord;
+
 public class HouseDisplay extends AppCompatActivity {
 
 
@@ -32,6 +36,7 @@ public class HouseDisplay extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView rv;
     private DatabaseReference mDatabaseFirebase = FirebaseDatabase.getInstance().getReference().child("Houses");
+    private DatabaseReference mDatabaseLord = FirebaseDatabase.getInstance().getReference().child("Characters");
     private Realm mDatabaseRealm;
     private HousesRVAdapter houseAdapter;
     private ChildEventListener mChildEventListener;
@@ -121,8 +126,6 @@ public class HouseDisplay extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-
-
                 try{
 
                     //Firebase Data
@@ -130,9 +133,22 @@ public class HouseDisplay extends AppCompatActivity {
                     final String name = dataSnapshot.child("name").getValue(String.class);
                     final String region = dataSnapshot.child("region").getValue(String.class);
                     final String words = dataSnapshot.child("words").getValue(String.class);
-                    final String currentLord = dataSnapshot.child("currentLord").getValue(String.class);
+                    final String currentLordLink = dataSnapshot.child("currentLord").getValue(String.class);
                     final String coatOfArms = dataSnapshot.child("coatOfArms").getValue(String.class);
+                    //Extract Lord ID
+                    final String currentLordID = IntegerExtractor(currentLordLink);
+                    String currentLordTemp;
+                    //Test if Lord exits in Realm
+                    RealmCharacterFormat testIfLordInRealm = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst();
 
+                    if(testIfLordInRealm != null){
+                        currentLordTemp = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst().getName();
+                    }
+                    else {
+                        currentLordTemp = "Not in Realm";
+                    }
+
+                    final String currentLord = currentLordTemp;
 
                     //Used to Test if any entry with the given House ID exists in the Local DB
                     RealmHouseFormat testInRealm = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst();
@@ -194,8 +210,24 @@ public class HouseDisplay extends AppCompatActivity {
                         final String name = dataSnapshot.child("name").getValue(String.class);
                         final String region = dataSnapshot.child("region").getValue(String.class);
                         final String words = dataSnapshot.child("words").getValue(String.class);
-                        final String currentLord = dataSnapshot.child("currentLord").getValue(String.class);
+                        final String currentLordLink = dataSnapshot.child("currentLord").getValue(String.class);
                         final String coatOfArms = dataSnapshot.child("coatOfArms").getValue(String.class);
+
+                        //Extract Lord ID
+                        final String currentLordID = IntegerExtractor(currentLordLink);
+                        String currentLordTemp;
+                        //Test if Lord exits in Realm
+                        RealmCharacterFormat testIfLordInRealm = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst();
+
+                        if(testIfLordInRealm != null){
+                            currentLordTemp = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst().getName();
+                        }
+                        else {
+                            currentLordTemp = "Not in Realm";
+                        }
+
+                        final String currentLord = currentLordTemp;
+
 
                         //Realm Data
                         String realmName = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getName();

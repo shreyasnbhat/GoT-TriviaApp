@@ -42,15 +42,27 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/text_result"
-        android:background="#80000000"
-        android:text="Search Result"
+        android:background="#562925"
+        android:text="-------       EXPLORE       -------"
         android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:elevation="8dp"
+        android:textSize="26sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="70dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#562925"
         android:gravity="center_vertical"
         android:padding="8dp"
         android:elevation="8dp"
         android:textSize="22sp"
         android:fontFamily="sans-serif-smallcaps"
-        android:layout_marginTop="70dp"/>
+        />
+
 
 
 
