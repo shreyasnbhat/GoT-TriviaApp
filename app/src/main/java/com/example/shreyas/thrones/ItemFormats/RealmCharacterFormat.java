@@ -3,6 +3,7 @@ package com.example.shreyas.thrones.ItemFormats;
 import io.realm.Realm;
 import io.realm.RealmModel;
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
 /**
@@ -14,7 +15,9 @@ public class RealmCharacterFormat extends RealmObject {
     @PrimaryKey
     String characterId="";
 
+    @Index
     String name = "";
+
     String gender = "Unknown :p";
     String culture = "Not Found";
     String born = "Not Found";

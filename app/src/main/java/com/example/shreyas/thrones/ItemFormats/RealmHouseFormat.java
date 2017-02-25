@@ -18,7 +18,9 @@ public class RealmHouseFormat extends RealmObject{
     @PrimaryKey
     private String houseId="";
 
+    @Index
     private String name = "";
+
     private String region = "";
     private String coatOfArms = "";
     private String words = "";

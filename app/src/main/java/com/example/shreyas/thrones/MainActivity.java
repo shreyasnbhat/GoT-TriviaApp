@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,6 +19,7 @@ import com.arlib.floatingsearchview.FloatingSearchView;
 import com.example.shreyas.thrones.Adapters.SearchRVAdapter;
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.DividerFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.database.DataSnapshot;
@@ -27,8 +29,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
+import io.realm.Realm;
 import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,7 +45,20 @@ public class MainActivity extends AppCompatActivity
     private TextView noResultTextView;
     private ArrayList<Object> results = new ArrayList<>();
     private RecyclerView searchRecyclerView;
+    private Realm mDatabaseRealm;
     private SearchRVAdapter searchAdapter = new SearchRVAdapter(results, this);
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //Initialize realm for this actviity
+        mDatabaseRealm = Realm.getDefaultInstance();
+
+        //Firebase Stuff
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
+    }
 
 
     @Override
@@ -49,12 +67,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Fresco.initialize(this);
 
-        //Firebase Stuff
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.keepSynced(true);
-        charactersRef = mDatabase.child("Characters");
-        houseRef = mDatabase.child("Houses");
-
+        //charactersRef = mDatabase.child("Characters");
+        //houseRef = mDatabase.child("Houses");
         //Reference Views
         searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
         searchRecyclerView = (RecyclerView) findViewById(R.id.search_recycler_view);
@@ -134,14 +148,52 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDatabaseRealm.close();
+    }
+
     public void searchQuery(String query) {
 
         String querySplit[] = query.trim().split(" ");
         final String tempCheck = querySplit[0].toLowerCase();
 
-        results.add(new DividerFormat("Houses"));
 
-        houseRef.addValueEventListener(new ValueEventListener() {
+        RealmResults<RealmHouseFormat> houseResult = mDatabaseRealm.where(RealmHouseFormat.class).contains("name",tempCheck).findAll();
+
+        //Put Results in Recycler View
+
+        if(houseResult.size() > 0 )
+        {
+            results.add(new DividerFormat("Houses (" + houseResult.size() + ")"));
+
+            noResultTextView.setVisibility(View.INVISIBLE);
+
+            results.addAll(houseResult);
+
+            searchAdapter.notifyDataSetChanged();
+        }
+
+
+
+        RealmResults<RealmCharacterFormat> characterResult = mDatabaseRealm.where(RealmCharacterFormat.class).contains("name",tempCheck).findAll();
+
+
+        if(characterResult.size() > 0) {
+
+            results.add(new DividerFormat("Characters (" + characterResult.size() + ")"));
+
+            results.addAll(characterResult);
+
+            searchAdapter.notifyDataSetChanged();
+
+        }
+
+
+
+        /*houseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -243,7 +295,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
+    */
 
     }
 }
