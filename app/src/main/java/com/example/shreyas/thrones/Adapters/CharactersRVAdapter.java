@@ -2,6 +2,7 @@ package com.example.shreyas.thrones.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -109,6 +110,10 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
         {
             holder.parentFrame.setLayoutParams(new FrameLayout.LayoutParams(450, FrameLayout.LayoutParams.MATCH_PARENT));
             holder.parentFrame.setPadding(8,8,8,8);
+
+        }
+        else{
+            holder.parentFrame.setBackgroundColor(0xff1e1e1e);
         }
         if(characterList.get(position).getImageUrl()!=null) {
             Uri imageUri = Uri.parse(characterList.get(position).getImageUrl());
