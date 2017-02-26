@@ -124,6 +124,9 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (house != null) {
             v.getHouseNameTextView().setText(house.getName());
             v.setHouseId(house.getHouseId());
+            v.setCurrentLord(house.getCurrentLord());
+            v.setRegion(house.getRegion());
+            v.setWords(house.getWords());
         }
     }
 

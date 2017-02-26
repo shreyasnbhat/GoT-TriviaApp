@@ -1,12 +1,14 @@
 package com.example.shreyas.thrones;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.test.suitebuilder.TestMethod;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,6 +48,9 @@ public class HouseInfo extends AppCompatActivity {
     private TextView errorText;
     private ProgressBar progress;
     private SimpleDraweeView image;
+    private TextView houseData;
+    private TextView swornMembersTextView;
+    private TextView wikiTextView;
     private TextView regionTextView,wordsTextView,lordTextView;
 
     @Override
@@ -66,10 +72,13 @@ public class HouseInfo extends AppCompatActivity {
         swornMemberRecyclerView = (RecyclerView) findViewById(R.id.sworn_member_recycler_view);
         errorText = (TextView) findViewById(R.id.error_text);
         progress = (ProgressBar)findViewById(R.id.progressbar);
+        houseData = (TextView)findViewById(R.id.house_wiki);
         //image = (SimpleDraweeView)findViewById(R.id.house_image);
         regionTextView = (TextView)findViewById(R.id.region_details);
         wordsTextView = (TextView)findViewById(R.id.words_details);
         lordTextView = (TextView)findViewById(R.id.lord_details);
+        wikiTextView = (TextView)findViewById(R.id.wiki_details);
+        swornMembersTextView = (TextView)findViewById(R.id.sworn_member_text);
 
         progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFFF"), android.graphics.PorterDuff.Mode.SRC_ATOP);
 
@@ -89,6 +98,12 @@ public class HouseInfo extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         houseToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
+        //Setup Typeface
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/helsinki.ttf");
+        houseData.setTypeface(face);
+        swornMembersTextView.setTypeface(face);
+        wikiTextView.setTypeface(face);
 
         //Setup Wiki TextViews
         setupWikiTextViews(words,currentLord,region);
@@ -254,7 +269,7 @@ public class HouseInfo extends AppCompatActivity {
         }
         if(currentLord!=null)
         {
-            lordTextView.setText(currentLord.replaceAll("[^0-9]",""));
+            lordTextView.setText(currentLord);
         }
         if(words!=null)
         {

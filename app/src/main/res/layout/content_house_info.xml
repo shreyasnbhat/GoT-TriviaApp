@@ -1,8 +1,8 @@
-<RelativeLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/sworn_member_text"
@@ -39,117 +39,129 @@
 
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/house_wiki"
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/house_details_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/frame_layout_recycler"
-        android:background="#60000000"
-        android:fontFamily="sans-serif-smallcaps"
-        android:padding="16dp"
-        android:text="House Data"
-        android:textColor="@color/white"
-        android:textSize="22sp" />
+        android:layout_margin="4dp"
+        android:stateListAnimator="@animator/lift_on_touch"
+        app:cardCornerRadius="0dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#212121">
 
+            <TextView
+                android:id="@+id/house_wiki"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#60000000"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="16dp"
+                android:text="House Data"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="Lord"
+            <TextView
+                android:id="@+id/lord_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/house_wiki"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="left"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="Lord"
+                android:textColor="@color/white"
+                android:textSize="16sp"
 
-        android:id="@+id/lord_hint"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="16sp"
-        android:layout_below="@+id/house_wiki"
-        android:padding="8dp"
-        android:gravity="left"
-        android:textColor="@color/white"
+                />
 
-        />
+            <TextView
+                android:id="@+id/lord_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/house_wiki"
+                android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="Current Lord"
+                android:textColor="#90ffffff"
+                android:textSize="16sp"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="Current Lord"
-        android:gravity="left"
-        android:padding="2dp"
-        android:id="@+id/lord_details"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="16sp"
-        android:layout_below="@+id/lord_hint"
-        android:textColor="@color/white"
+                />
 
-        />
+            <TextView
+                android:id="@+id/region_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lord_details"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="left"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="Region"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="Region"
-        android:id="@+id/region_hint"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="16sp"
-        android:padding="8dp"
-        android:gravity="left"
-        android:textColor="@color/white"
-        android:layout_below="@+id/lord_details"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:id="@+id/region_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/lord_details"
+                android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="Region of House"
+                android:textColor="#90ffffff"
+                android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="Region of House"
-        android:gravity="left"
-        android:padding="2dp"
-        android:layout_below="@id/region_hint"
-        android:id="@+id/region_details"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="Words"
-        android:gravity="left"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="16sp"
-        android:id="@+id/words_hint"
-        android:layout_below="@+id/region_details"
-        android:padding="8dp"
-        android:textColor="@color/white"
+            <TextView
+                android:id="@+id/words_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/region_details"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="left"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="Words"
+                android:textColor="@color/white"
+                android:textSize="16sp"
 
-        />
+                />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:text="Words of the House"
-        android:gravity="left"
-        android:id="@+id/words_details"
-        android:padding="2dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:layout_below="@+id/words_hint"
-        />
+            <TextView
+                android:id="@+id/words_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/region_details"
+                android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:text="Words of the House"
+                android:textColor="#90ffffff"
+                android:textSize="16sp" />
+        </RelativeLayout>
 
+    </android.support.v7.widget.CardView>
 
 
     <TextView
         android:id="@+id/wiki_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:layout_below="@+id/words_details"
+        android:layout_below="@+id/house_details_card"
         android:background="#50000000"
         android:fontFamily="sans-serif-smallcaps"
+        android:maxLines="1"
         android:padding="16dp"
         android:text="House Wiki"
         android:textColor="#ffffff"
@@ -182,12 +194,6 @@
             android:layout_margin="56dp" />
 
     </FrameLayout>
-
-
-
-
-
-
 
 
 </RelativeLayout>
