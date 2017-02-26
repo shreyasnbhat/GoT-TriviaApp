@@ -3,17 +3,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center_vertical"
-        android:background="@color/black"
-        android:text="Item Type"
-        android:textColor="@color/white"
-        android:padding="8dp"
-        android:textSize="22sp"
-        android:fontFamily="sans-serif-condensed"
-        android:id="@+id/itemType"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@color/black"
+            android:text="Item Type"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/itemType"
+            />
 
 </LinearLayout>

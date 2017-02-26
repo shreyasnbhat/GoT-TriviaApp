@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/io.realm/android-adapters/1.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="0ae57cc4afcb7ed42ee18f3c0a0a87f4ec3e783f">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/io.realm-android-adapters-1.4.0_2b967ae95a07f41bf4c9fea19322ce52ae5dc59f.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
