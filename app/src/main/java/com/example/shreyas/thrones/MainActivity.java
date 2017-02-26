@@ -1,6 +1,7 @@
 package com.example.shreyas.thrones;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +20,8 @@ import com.arlib.floatingsearchview.FloatingSearchView;
 import com.example.shreyas.thrones.Adapters.SearchRVAdapter;
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.DividerFormat;
-import com.example.shreyas.thrones.ItemFormats.HouseFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,8 +30,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
+import io.realm.Case;
+import io.realm.Realm;
 import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,9 +45,23 @@ public class MainActivity extends AppCompatActivity
     private DatabaseReference charactersRef, houseRef;
     private FloatingSearchView searchView;
     private TextView noResultTextView;
+    private TextView exploreTextView;
     private ArrayList<Object> results = new ArrayList<>();
     private RecyclerView searchRecyclerView;
+    private Realm mDatabaseRealm;
     private SearchRVAdapter searchAdapter = new SearchRVAdapter(results, this);
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //Initialize realm for this actviity
+        mDatabaseRealm = Realm.getDefaultInstance();
+
+        //Firebase Stuff
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.keepSynced(true);
+    }
 
 
     @Override
@@ -50,16 +70,15 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Fresco.initialize(this);
 
-        //Firebase Stuff
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.keepSynced(true);
-        charactersRef = mDatabase.child("Characters");
-        houseRef = mDatabase.child("Houses");
 
         //Reference Views
         searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
         searchRecyclerView = (RecyclerView) findViewById(R.id.search_recycler_view);
         noResultTextView = (TextView) findViewById(R.id.no_result);
+        exploreTextView = (TextView)findViewById(R.id.text_result);
+
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/boston_traffic.ttf");
+        exploreTextView.setTypeface(face);
 
         //Recycler View Stuff
         searchRecyclerView.setAdapter(searchAdapter);
@@ -135,115 +154,48 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDatabaseRealm.close();
+    }
+
     public void searchQuery(String query) {
 
         String querySplit[] = query.trim().split(" ");
         final String tempCheck = querySplit[0].toLowerCase();
 
-        results.add(new DividerFormat("Houses"));
 
-        houseRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+        RealmResults<RealmHouseFormat> houseResult = mDatabaseRealm.where(RealmHouseFormat.class).contains("name",tempCheck,Case.INSENSITIVE).findAll();
 
-                for (DataSnapshot childShot : dataSnapshot.getChildren()) {
+        //Put Results in Recycler View
 
-                    String name = childShot.child("name").getValue(String.class);
-                    String nameLower = name.toLowerCase();
+        if(houseResult.size() > 0 )
+        {
+            results.add(new DividerFormat("Houses (" + houseResult.size() + ")"));
 
-                    if (nameLower.contains(tempCheck)) {
+            noResultTextView.setVisibility(View.INVISIBLE);
 
-                        try {
+            results.addAll(houseResult);
 
-                            String houseId = childShot.getKey();
-                            String region = childShot.child("region").getValue(String.class);
-                            String coatOfArms = childShot.child("coatOfArms").getValue(String.class);
-                            String words = childShot.child("words").getValue(String.class);
-                            //Need to Implement
-                            RealmList<RealmString> titles = new RealmList<>();
-                            String currentLord = "Jon Snow";
-                            RealmList<RealmString> members = new RealmList<>();
-                            //
-
-                            results.add(new RealmHouseFormat(houseId, name, region, coatOfArms, words, titles, currentLord, members));
-
-                            searchAdapter.notifyDataSetChanged();
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                        if (results.size() != 0) {
-                            noResultTextView.setVisibility(View.INVISIBLE);
-                        } else {
-                            searchRecyclerView.setVisibility(View.INVISIBLE);
-                            noResultTextView.setVisibility(View.VISIBLE);
-                        }
-
-                    }
-
-
-                }
-
-                results.add(new DividerFormat("Characters"));
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-        charactersRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot childShot : dataSnapshot.getChildren()) {
-
-                    String name = childShot.child("name").getValue(String.class);
-                    String nameLower = name.toLowerCase();
-
-                    if (nameLower.contains(tempCheck)) {
-
-                        try {
-
-                            String playedBy = childShot.child("playedBy").getValue(String.class);
-                            String gender = childShot.child("gender").getValue(String.class);
-                            String born = childShot.child("born").getValue(String.class);
-                            String died = childShot.child("died").getValue(String.class);
-                            String imageUrl = childShot.child("imageUrl").getValue(String.class);
-                            results.add(new CharacterFormat(name, playedBy, gender, born, died, imageUrl));
-                            searchAdapter.notifyDataSetChanged();
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                        if (results.size() != 0) {
-                            noResultTextView.setVisibility(View.INVISIBLE);
-                        } else {
-                            searchRecyclerView.setVisibility(View.INVISIBLE);
-                            noResultTextView.setVisibility(View.VISIBLE);
-                        }
-
-                    }
-
-
-                }
+            searchAdapter.notifyDataSetChanged();
+        }
 
 
 
+        RealmResults<RealmCharacterFormat> characterResult = mDatabaseRealm.where(RealmCharacterFormat.class).contains("name",tempCheck,Case.INSENSITIVE).findAll();
 
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+        if(characterResult.size() > 0) {
 
-            }
-        });
+            results.add(new DividerFormat("Characters (" + characterResult.size() + ")"));
 
+            results.addAll(characterResult);
+
+            searchAdapter.notifyDataSetChanged();
+
+        }
 
 
     }

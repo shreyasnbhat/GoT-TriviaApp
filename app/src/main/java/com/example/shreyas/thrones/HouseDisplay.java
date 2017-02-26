@@ -11,7 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.example.shreyas.thrones.Adapters.HousesRVAdapter;
-import com.example.shreyas.thrones.ItemFormats.HouseFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,20 +21,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.turingtechnologies.materialscrollbar.AlphabetIndicator;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.Sort;
+
+import static com.example.shreyas.thrones.R.id.currentLord;
 
 public class HouseDisplay extends AppCompatActivity {
 
 
-    private ArrayList<RealmHouseFormat> houses = new ArrayList<>();
+    private RealmList<RealmHouseFormat> houseList = new RealmList<>();
     private Toolbar toolbar;
     private RecyclerView rv;
-    private DatabaseReference mDatabase;
-    private Realm realm;
+    private DatabaseReference mDatabaseFirebase = FirebaseDatabase.getInstance().getReference().child("Houses");
+    private DatabaseReference mDatabaseLord = FirebaseDatabase.getInstance().getReference().child("Characters");
+    private Realm mDatabaseRealm;
+    private HousesRVAdapter houseAdapter;
+    private ChildEventListener mChildEventListener;
     private com.turingtechnologies.materialscrollbar.DragScrollBar scrollBar;
 
 
@@ -47,60 +54,32 @@ public class HouseDisplay extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        //Initialize Realm here
+        mDatabaseRealm = Realm.getDefaultInstance();
+
         //Firebase Reference
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.keepSynced(true);
+        mDatabaseFirebase.keepSynced(true);
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        //Add Data into List of Houses from Realm Local DB
+        houseList.addAll(mDatabaseRealm.where(RealmHouseFormat.class).
+                findAllSorted(new String[]{"houseId", "name", "words", "coatOfArms", "region"},
+                        new Sort[]{Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING}));
+
+
+        scrollBar.setIndicator(new AlphabetIndicator(this),true);
+
+        mChildEventListener = generateChildEventListener();
+
+        mDatabaseFirebase.addChildEventListener(mChildEventListener);
+
+        //Sorting Operation
+        //Could be moved to an AsyncTask
+        houseList.sort(new Comparator<RealmHouseFormat>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot shot : dataSnapshot.child("Houses").getChildren()) {
-
-                    try {
-
-                        String houseId = shot.getKey();
-                        String name = shot.child("name").getValue(String.class).trim();
-                        String words = shot.child("words").getValue(String.class).trim();
-                        String region = shot.child("region").getValue(String.class).trim();
-                        String coatOfArms = shot.child("coatOfArms").getValue(String.class).trim();
-                        String LordID = IntegerExtractor(shot.child("currentLord").getValue(String.class).trim());
-
-                        RealmHouseFormat temp = new RealmHouseFormat(name);
-                        String currentLord="";
-                        if(dataSnapshot.child("Characters").child(LordID).child("name").getValue(String.class)!=null)
-                        {
-                            currentLord = dataSnapshot.child("Characters").child(LordID).child("name").getValue(String.class);
-                        }
-
-                        if (!words.equals(""))
-                            temp.setWords(words);
-                        if (!region.equals(""))
-                            temp.setRegion(region);
-                        if (!coatOfArms.equals(""))
-                            temp.setCoatOfArms(coatOfArms);
-                        if (!currentLord.equals(""))
-                            temp.setCurrentLord(currentLord);
-                        temp.setHouseId(houseId);
-
-                        houses.add(temp);
-
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-                Log.v("Error", "Firebase Error");
-
+            public int compare(RealmHouseFormat realmHouseFormat, RealmHouseFormat t1) {
+                return IntegerConvertor(realmHouseFormat.getHouseId()) - IntegerConvertor(t1.getHouseId());
             }
         });
-
 
     }
 
@@ -121,19 +100,11 @@ public class HouseDisplay extends AppCompatActivity {
         toolbar.setTitle("Houses");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-        final HousesRVAdapter adapter = new HousesRVAdapter(houses, this);
-
         //Recycler View Stuff
-        rv.setAdapter(adapter);
+        houseAdapter = new HousesRVAdapter(houseList,this);
+        rv.setAdapter(houseAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setHasFixedSize(true);
-        scrollBar.setIndicator(new AlphabetIndicator(this),true);
-
-        //URLS for JSON Parsing
-        String url = "http://www.anapioficeandfire.com/api/houses?page=";
-        String temp1;
-
-
 
     }
 
@@ -149,9 +120,203 @@ public class HouseDisplay extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    public ChildEventListener generateChildEventListener(){
+
+        ChildEventListener listener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                try{
+
+                    //Firebase Data
+                    final String primaryKey = dataSnapshot.getKey();
+                    final String name = dataSnapshot.child("name").getValue(String.class);
+                    final String region = dataSnapshot.child("region").getValue(String.class);
+                    final String words = dataSnapshot.child("words").getValue(String.class);
+                    final String currentLordLink = dataSnapshot.child("currentLord").getValue(String.class);
+                    final String coatOfArms = dataSnapshot.child("coatOfArms").getValue(String.class);
+                    //Extract Lord ID
+                    final String currentLordID = IntegerExtractor(currentLordLink);
+                    String currentLordTemp;
+                    //Test if Lord exits in Realm
+                    RealmCharacterFormat testIfLordInRealm = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst();
+
+                    if(testIfLordInRealm != null){
+                        currentLordTemp = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst().getName();
+                    }
+                    else {
+                        currentLordTemp = "Not in Realm";
+                    }
+
+                    final String currentLord = currentLordTemp;
+
+                    //Used to Test if any entry with the given House ID exists in the Local DB
+                    RealmHouseFormat testInRealm = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst();
+
+                    if(testInRealm==null) {
+
+                        mDatabaseRealm.executeTransactionAsync(new Realm.Transaction() {
+                            @Override
+                            public void execute(Realm realm) {
+
+                                RealmHouseFormat houseToBeAdded = realm.createObject(RealmHouseFormat.class,primaryKey);
+                                houseToBeAdded.setName(name);
+                                houseToBeAdded.setCurrentLord(currentLord);
+                                houseToBeAdded.setCoatOfArms(coatOfArms);
+                                houseToBeAdded.setWords(words);
+                                houseToBeAdded.setRegion(region);
+
+                            }
+                        });
+
+                        houseList.add(new RealmHouseFormat(primaryKey,name,region,coatOfArms,words,null,currentLord,null));
+                        houseAdapter.notifyItemInserted(houseList.size() - 1);
+
+                    }
+                    else
+                    {
+                        onChildChanged(dataSnapshot,s);
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Log.e(getLocalClassName(),"OnChildAdded Parse error");
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                final String primaryKey = dataSnapshot.getKey();
+
+                //Test if already exists in Realm
+                RealmHouseFormat testInRealm = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst();
+
+                if( testInRealm == null ){
+
+                    //Code is common so call Child Added instead
+                    onChildAdded(dataSnapshot,s);
+
+                }
+                else{
+
+                    //Parse error could occur
+                    try{
+
+                        //Firebase Data
+                        final String name = dataSnapshot.child("name").getValue(String.class);
+                        final String region = dataSnapshot.child("region").getValue(String.class);
+                        final String words = dataSnapshot.child("words").getValue(String.class);
+                        final String currentLordLink = dataSnapshot.child("currentLord").getValue(String.class);
+                        final String coatOfArms = dataSnapshot.child("coatOfArms").getValue(String.class);
+
+                        //Extract Lord ID
+                        final String currentLordID = IntegerExtractor(currentLordLink);
+                        String currentLordTemp;
+                        //Test if Lord exits in Realm
+                        RealmCharacterFormat testIfLordInRealm = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst();
+
+                        if(testIfLordInRealm != null){
+                            currentLordTemp = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",currentLordID).findFirst().getName();
+                        }
+                        else {
+                            currentLordTemp = "Not in Realm";
+                        }
+
+                        final String currentLord = currentLordTemp;
+
+
+                        //Realm Data
+                        String realmName = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getName();
+                        String realmRegion = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getRegion();
+                        String realmWords = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getWords();
+                        String realmLord = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getCurrentLord();
+                        String realmCoat = mDatabaseRealm.where(RealmHouseFormat.class).equalTo("houseId",primaryKey).findFirst().getCoatOfArms();
+
+                        //Tweak to avoid un-necessary updation of data
+                        boolean ifAnyThingChanged = (realmName.equalsIgnoreCase(name) && realmRegion.equalsIgnoreCase(region) && realmWords.equalsIgnoreCase(words) && realmCoat.equalsIgnoreCase(coatOfArms) && realmLord.equalsIgnoreCase(currentLord));
+
+                        if(!ifAnyThingChanged) {
+                            mDatabaseRealm.executeTransactionAsync(new Realm.Transaction() {
+                                @Override
+                                public void execute(Realm realm) {
+                                    RealmHouseFormat houseToBeChanged = realm.where(RealmHouseFormat.class).equalTo("houseId", primaryKey).findFirst();
+                                    houseToBeChanged.setName(name);
+                                    houseToBeChanged.setCurrentLord(currentLord);
+                                    houseToBeChanged.setCoatOfArms(coatOfArms);
+                                    houseToBeChanged.setWords(words);
+                                    houseToBeChanged.setRegion(region);
+                                }
+                            });
+                        }
+                        houseAdapter.notifyDataSetChanged();
+                        //sortDataSet();
+
+                    }
+                    catch (Exception e){
+
+                        e.printStackTrace();
+
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+
+
+        return listener;
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    private void sortDataSet() {
+
+        Log.e("Sort","Need to Sort");
+
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        houseList.clear();
+
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mDatabaseFirebase.removeEventListener(mChildEventListener);
+        mDatabaseRealm.close();
 
+    }
+
+    public int IntegerConvertor(String s)
+    {
+        return Integer.valueOf(s);
     }
 }

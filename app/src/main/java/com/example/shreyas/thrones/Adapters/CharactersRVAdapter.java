@@ -2,8 +2,10 @@ package com.example.shreyas.thrones.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.example.shreyas.thrones.CharacterInfoActivity;
 import com.example.shreyas.thrones.HouseInfo;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
 import com.example.shreyas.thrones.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.turingtechnologies.materialscrollbar.INameableAdapter;
@@ -25,7 +28,7 @@ import java.util.List;
 
 public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapter.ViewHolder> implements INameableAdapter {
 
-    private List<CharacterFormat> characterList;
+    private List<RealmCharacterFormat> characterList;
 
     private Context mContext;
 
@@ -52,7 +55,7 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
                     Intent intent = new Intent(mContext,CharacterInfoActivity.class);
                     intent.putExtra("CharacterName",name.getText().toString());
 
-                    CharacterFormat character = new CharacterFormat();
+                    RealmCharacterFormat character = new RealmCharacterFormat();
 
                     //Get Adapter Position
                     int position = getAdapterPosition();
@@ -81,7 +84,7 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
     }
 
     //Contructor for HouseRV
-    public CharactersRVAdapter(List<CharacterFormat> characterList, Context mContext) {
+    public CharactersRVAdapter(List<RealmCharacterFormat> characterList, Context mContext) {
         this.characterList = characterList;
         this.mContext = mContext;
     }
@@ -107,8 +110,12 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
         {
             holder.parentFrame.setLayoutParams(new FrameLayout.LayoutParams(450, FrameLayout.LayoutParams.MATCH_PARENT));
             holder.parentFrame.setPadding(8,8,8,8);
+
         }
-        if(characterList.get(position).getImageUrl()!="") {
+        else{
+            holder.parentFrame.setBackgroundColor(0xff1e1e1e);
+        }
+        if(characterList.get(position).getImageUrl()!=null) {
             Uri imageUri = Uri.parse(characterList.get(position).getImageUrl());
             holder.image.setImageURI(imageUri);
         }

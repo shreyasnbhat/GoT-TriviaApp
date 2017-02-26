@@ -3,6 +3,7 @@ package com.example.shreyas.thrones;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,8 @@ public class CharacterInfoActivity extends AppCompatActivity {
     private TextView genderText;
     private TextView bornText;
     private TextView diedText;
+    private TextView bioTextView;
+    private TextView wikiTextView;
     private DatabaseReference mDatabase;
     private SimpleDraweeView image;
     private ProgressBar progress;
@@ -65,8 +68,7 @@ public class CharacterInfoActivity extends AppCompatActivity {
         String gender = getIntent().getStringExtra("gender");
         String imageUrl = getIntent().getStringExtra("imageUrl");
 
-        Log.e("PLAYED BY",playedBy);
-        Log.e("GENDER",gender);
+
 
         //Firebase Stuff
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -77,9 +79,16 @@ public class CharacterInfoActivity extends AppCompatActivity {
         playedByText = (TextView)findViewById(R.id.playedBy_textView);
         genderText = (TextView)findViewById(R.id.gender_textView);
         diedText = (TextView)findViewById(R.id.died_textView);
+        bioTextView = (TextView)findViewById(R.id.bio_details);
+        wikiTextView = (TextView)findViewById(R.id.wiki_details);
         bornText = (TextView)findViewById(R.id.born_textView);
         progress = (ProgressBar)findViewById(R.id.progressbar);
         image = (SimpleDraweeView) findViewById(R.id.character_image);
+
+        //Setting Typefaces
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/helsinki.ttf");
+        bioTextView.setTypeface(face);
+        wikiTextView.setTypeface(face);
 
         progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFFF"), android.graphics.PorterDuff.Mode.SRC_ATOP);
 

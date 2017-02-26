@@ -1,0 +1,260 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="240dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/bio_data_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:stateListAnimator="@animator/lift_on_touch">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="#212121">
+
+            <TextView
+                android:id="@+id/bio_details"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#50000000"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="16dp"
+                android:text="Character Biodata"
+                android:textColor="#ffffff"
+                android:textSize="22dp"
+
+
+                />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/character_image"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_below="@+id/bio_details"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="8dp"
+                android:stateListAnimator="@animator/lift_on_touch"
+                fresco:actualImageScaleType="focusCrop"
+                fresco:fadeDuration="300"
+                fresco:placeholderImage="@drawable/avatar_placeholder"
+                fresco:roundAsCircle="true"
+                fresco:roundedCornerRadius="8dp"
+                fresco:roundingBorderColor="@color/colorAccentDarkBorder"
+                fresco:roundingBorderWidth="4dp" />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="145dp"
+                android:layout_below="@+id/bio_details"
+                android:gravity="center_vertical">
+
+
+                <TextView
+                    android:id="@+id/playedBy_textView_hint"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="left"
+                    android:text="Played By"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/playedBy_textView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/playedBy_textView_hint"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="middle"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="left"
+                    android:maxLines="2"
+                    android:text="Played By Character"
+                    android:textColor="#90ffffff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/gender_textView_hint"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/playedBy_textView"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="left"
+                    android:text="Gender"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/gender_textView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/gender_textView_hint"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="left"
+                    android:text="Gender"
+                    android:textColor="#90ffffff"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="145dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/bio_details"
+                android:gravity="center_vertical">
+
+
+                <TextView
+                    android:id="@+id/born_textView_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Born"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/born_textView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/born_textView_hint"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="right"
+                    android:maxLines="2"
+                    android:text="Born"
+                    android:textColor="#90ffffff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/died_textView_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/born_textView"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Died"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/died_textView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/died_textView_hint"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="right"
+                    android:maxLines="2"
+                    android:text="Died"
+                    android:textColor="#90ffffff"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/character_wiki_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:layout_below="@+id/bio_data_card"
+        android:stateListAnimator="@animator/lift_on_touch">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#092654"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/wiki_details"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#50000000"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="16dp"
+                android:text="Character Wiki"
+                android:textColor="#ffffff"
+                android:textSize="22dp"
+
+
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wiki_details">
+
+                <TextView
+                    android:id="@+id/character_extract"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:padding="16dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+
+                    />
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:layout_margin="56dp" />
+
+            </FrameLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

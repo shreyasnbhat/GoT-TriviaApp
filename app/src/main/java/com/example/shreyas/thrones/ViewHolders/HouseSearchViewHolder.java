@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.shreyas.thrones.HouseInfo;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.example.shreyas.thrones.R;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * Created by Shreyas on 1/22/2017.
@@ -17,6 +21,10 @@ public class HouseSearchViewHolder extends RecyclerView.ViewHolder {
 
     private TextView houseName;
     private String houseId;
+    private String region;
+    private String words;
+    private String currentLord;
+
 
     public HouseSearchViewHolder(View itemView, final Context context) {
         super(itemView);
@@ -30,6 +38,10 @@ public class HouseSearchViewHolder extends RecyclerView.ViewHolder {
                 Intent intent = new Intent(context,HouseInfo.class);
                 intent.putExtra("houseName",houseName.getText().toString().replace("House ",""));
                 intent.putExtra("HousePosition",houseId);
+                intent.putExtra("region",region);
+                intent.putExtra("currentLord",currentLord);
+                intent.putExtra("words",words);
+
                 context.startActivity(intent);
             }
         });
@@ -50,4 +62,17 @@ public class HouseSearchViewHolder extends RecyclerView.ViewHolder {
     public void setHouseId(String houseId) {
         this.houseId = houseId;
     }
+
+    public void setWords(String words) {
+        this.words = words;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public void setCurrentLord(String currentLord) {
+        this.currentLord = currentLord;
+    }
+
 }

@@ -3,16 +3,15 @@ package com.example.shreyas.thrones.Adapters;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.DividerFormat;
-import com.example.shreyas.thrones.RealmHouseFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
 import com.example.shreyas.thrones.ViewHolders.CharacterSearchViewHolder;
-import com.example.shreyas.thrones.ItemFormats.HouseFormat;
 import com.example.shreyas.thrones.ViewHolders.HouseSearchViewHolder;
 import com.example.shreyas.thrones.R;
 import com.example.shreyas.thrones.ViewHolders.SearchItemTypeViewHolder;
@@ -47,7 +46,7 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public int getItemViewType(int position) {
 
         //Used to identify which Type is the object of
-        if (searchList.get(position) instanceof CharacterFormat) {
+        if (searchList.get(position) instanceof RealmCharacterFormat) {
             return CHARACTER;
         } else if (searchList.get(position) instanceof RealmHouseFormat) {
             return HOUSE;
@@ -105,7 +104,7 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     //Setting Fields in the ViewHolder
     public void configureCharacterHolder(CharacterSearchViewHolder v, int position) {
 
-        CharacterFormat character = (CharacterFormat) searchList.get(position);
+        RealmCharacterFormat character = (RealmCharacterFormat) searchList.get(position);
         if (character != null) {
             v.getNameTextView().setText(character.getName());
             v.getPlayedByTextView().setText(character.getPlayedBy());
@@ -125,6 +124,9 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (house != null) {
             v.getHouseNameTextView().setText(house.getName());
             v.setHouseId(house.getHouseId());
+            v.setCurrentLord(house.getCurrentLord());
+            v.setRegion(house.getRegion());
+            v.setWords(house.getWords());
         }
     }
 

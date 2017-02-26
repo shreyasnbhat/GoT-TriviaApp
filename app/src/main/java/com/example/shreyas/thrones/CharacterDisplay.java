@@ -12,31 +12,74 @@ import android.widget.TextView;
 
 import com.example.shreyas.thrones.Adapters.CharactersRVAdapter;
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
+import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+
+import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.Sort;
 
 public class CharacterDisplay extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private ArrayList<CharacterFormat> characters = new ArrayList<>();
-    private DatabaseReference mDatabase;
+    private RealmList<RealmCharacterFormat> characterList = new RealmList<>();
+    private DatabaseReference mDatabaseFirebase = FirebaseDatabase.getInstance().getReference().child("Characters");
     private RecyclerView rv;
+    private ChildEventListener mChildEventListener;
+    private CharactersRVAdapter characterAdapter;
     private ProgressBar progress;
+    private Realm mDatabaseRealm;
 
-    private TextView mTextView;
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mDatabaseFirebase.removeEventListener(mChildEventListener);
+        mDatabaseRealm.close();
+        characterList.clear();
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //Initialize Realm here
+        mDatabaseRealm = Realm.getDefaultInstance();
+
+        //Firebase Stuff
+        mDatabaseFirebase.keepSynced(true);
+
+        //Add Data into List of Characters from Realm Local DB
+        characterList.addAll(mDatabaseRealm.where(RealmCharacterFormat.class).
+                findAllSorted(new String[]{"characterId", "name", "playedBy", "gender", "born", "died", "imageUrl"},
+                        new Sort[]{Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING, Sort.ASCENDING}));
+
+
+
+
+        //Populate Data from Firebase
+        mChildEventListener = generateChildEventListener();
+        mDatabaseFirebase.addChildEventListener(mChildEventListener);
+
 
     }
 
@@ -45,15 +88,11 @@ public class CharacterDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_display);
 
-        //Firebase Stuff
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.keepSynced(true);
 
         //View Referencing
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         rv = (RecyclerView) findViewById(R.id.characters_rv);
-        progress = (ProgressBar)findViewById(R.id.progressbar);
-        //scrollBar = (com.turingtechnologies.materialscrollbar.DragScrollBar)findViewById(R.id.dragScrollBar);
+        progress = (ProgressBar) findViewById(R.id.progressbar);
 
         //Toolbar Stuff
         toolbar.setTitle("Characters");
@@ -62,174 +101,161 @@ public class CharacterDisplay extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        final CharactersRVAdapter adapter = new CharactersRVAdapter(characters, this);
-
         //Recycler View Stuff
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new StaggeredGridLayoutManager(2,1));
+        characterAdapter = new CharactersRVAdapter(characterList, this);
+        rv.setAdapter(characterAdapter);
+
+        rv.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
         rv.setHasFixedSize(true);
-        //scrollBar.setIndicator(new AlphabetIndicator(this),true);
-
-        String url = "http://www.anapioficeandfire.com/api/characters?page=";
-        String temp1;
-
-
-
-        //Used to populate data into Firebase
-        //When API is updated will need to push app update. As Firebase is copy of API JSON
-
-
-        /*for(int k=50;k<=200;k++) {
-
-            temp1 = url;
-            temp1 = temp1+""+k;
-
-            JsonArrayRequest jsObjRequest = new JsonArrayRequest
-                    (Request.Method.GET, temp1, null, new Response.Listener<JSONArray>() {
-
-                        @Override
-                        public void onResponse(JSONArray response) {
-
-                            String name;
-                            String id;
-                            String gender;
-                            String culture;
-                            String born;
-                            String died;
-                            String playedBy;
-
-
-                            for (int i = 0; i < response.length(); i++) {
-                                try {
-                                    JSONObject obj = response.getJSONObject(i);
-                                     name = obj.getString("name");
-                                     id = obj.getString("url").replaceAll("[^0-9]","");
-                                     gender = obj.getString("gender");
-                                     culture = obj.getString("culture");
-                                     born = obj.getString("born");
-                                     died = obj.getString("died");
-                                     playedBy = obj.getString("playedBy");
-                                     int size = playedBy.length();
-
-                                    if(playedBy.length()>2 && !name.equals(""))
-                                    {
-
-                                        playedBy = playedBy.substring(2,size-2);
-                                        CharacterFormat x = new CharacterFormat(name,gender,culture,born,died,playedBy);
-                                        mDatabase.child("CharacterDisplay").child(id).setValue(x);
-                                    }
-                                    else if(size==2 && !name.equalsIgnoreCase("")) {
-
-                                        playedBy = "";
-                                        CharacterFormat x = new CharacterFormat(name,gender,culture,born,died,playedBy);
-                                        mDatabase.child("CharacterDisplay").child(id).setValue(x);
-
-
-                                    }
-
-
-
-
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-
-
-
-                            }
-
-
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-
-                            Log.v("Error", "Volley Error");
-                        }
-                    });
-
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
-            requestQueue.add(jsObjRequest);
-
-        }
-        */
-
-
-       //Populate Data from Firebase
-
-       mDatabase.addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(DataSnapshot dataSnapshot) {
-
-               progress.setIndeterminate(true);
-               characters.clear();
-
-               for (DataSnapshot shot : dataSnapshot.child("Characters").getChildren()) {
-
-                   try {
-
-                       String name = shot.child("name").getValue(String.class);
-                       String playedBy = shot.child("playedBy").getValue(String.class);
-                       String gender = shot.child("gender").getValue(String.class);
-                       String born = shot.child("born").getValue(String.class);
-                       String died = shot.child("died").getValue(String.class);
-                       String imageUrl = shot.child("imageUrl").getValue(String.class);
-
-
-                       if(name!=null && imageUrl!=null)
-
-                        {
-                            characters.add(new CharacterFormat(name,playedBy,gender,born,died,imageUrl));
-                        }
-
-
-                       adapter.notifyDataSetChanged();
-                       progress.setVisibility(View.INVISIBLE);
-                   }
-                   catch(Exception e)
-                   {
-                       e.printStackTrace();
-                   }
-
-               }
-
-               characters = removeDuplicates(characters);
-               adapter.notifyDataSetChanged();
-           }
-
-           @Override
-           public void onCancelled(DatabaseError databaseError) {
-
-               progress.setVisibility(View.GONE);
-               Log.v("Error","Firebase Error");
-
-           }
-       });
-
-        class CharacterDetailsComparator implements Comparator<CharacterFormat> {
-
-            @Override
-            public int compare(CharacterFormat t1,CharacterFormat t2) {
-
-                String one = t1.getName();
-                String two = t2.getName();
-                Log.e(one,two);
-
-                return one.compareToIgnoreCase(two);
-
-            }
-        }
-
-        Collections.sort(characters,new CharacterDetailsComparator());
-        adapter.notifyDataSetChanged();
 
 
     }
 
-    public ArrayList<CharacterFormat> removeDuplicates(ArrayList<CharacterFormat> temp)
-    {
+    public ChildEventListener generateChildEventListener() {
+
+        ChildEventListener listener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                if (dataSnapshot.child("imageUrl").getValue(String.class) != null) {
+
+
+                    try {
+
+                        final String primaryKey = dataSnapshot.getKey();
+                        final String name = dataSnapshot.child("name").getValue(String.class);
+                        final String playedBy = dataSnapshot.child("playedBy").getValue(String.class);
+                        final String gender = dataSnapshot.child("gender").getValue(String.class);
+                        final String born = dataSnapshot.child("born").getValue(String.class);
+                        final String died = dataSnapshot.child("died").getValue(String.class);
+                        final String imageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+
+
+                        //Used to Test if any entry with the given Character ID exists in the Local DB
+                        RealmCharacterFormat testInRealm = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId", primaryKey).findFirst();
+
+                        if (testInRealm == null) {
+
+                            mDatabaseRealm.executeTransaction(new Realm.Transaction() {
+                                @Override
+                                public void execute(Realm realm) {
+
+                                    RealmCharacterFormat characterToBeAdded = realm.createObject(RealmCharacterFormat.class, primaryKey);
+                                    characterToBeAdded.setName(name);
+                                    characterToBeAdded.setBorn(born);
+                                    characterToBeAdded.setImageUrl(imageUrl);
+                                    characterToBeAdded.setDied(died);
+                                    characterToBeAdded.setGender(gender);
+                                    characterToBeAdded.setPlayedBy(playedBy);
+
+                                }
+                            });
+
+                            Log.e("ImageUrl", imageUrl);
+
+                            characterList.add(new RealmCharacterFormat(primaryKey, name, playedBy, gender, born, died, imageUrl));
+                            characterAdapter.notifyDataSetChanged();
+                        } else {
+                            onChildChanged(dataSnapshot, s);
+                        }
+
+                    } catch (Exception e) {
+                        Log.e(getLocalClassName(), "OnChildAdded Parse error");
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                final String primaryKey = dataSnapshot.getKey();
+
+                //Test if already exists in Realm
+                RealmCharacterFormat testInRealm = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId", primaryKey).findFirst();
+
+                if (testInRealm == null) {
+
+                    //Code is common so call Child Added instead
+                    onChildAdded(dataSnapshot, s);
+
+                } else {
+
+                    //Parse error could occur
+                    try {
+
+                        //Firebase Data
+                        final String name = dataSnapshot.child("name").getValue(String.class);
+                        final String playedBy = dataSnapshot.child("playedBy").getValue(String.class);
+                        final String gender = dataSnapshot.child("gender").getValue(String.class);
+                        final String born = dataSnapshot.child("born").getValue(String.class);
+                        final String died = dataSnapshot.child("died").getValue(String.class);
+                        final String imageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+
+                        //Realm Data
+                        String realmName = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",primaryKey).findFirst().getName();
+                        String realmPlayedBy = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",primaryKey).findFirst().getPlayedBy();
+                        String realmGender = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",primaryKey).findFirst().getGender();
+                        String realmBorn = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",primaryKey).findFirst().getBorn();
+                        String realmDied = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",primaryKey).findFirst().getDied();
+                        String realmImageUrl = mDatabaseRealm.where(RealmCharacterFormat.class).equalTo("characterId",primaryKey).findFirst().getImageUrl();
+
+
+                        //Tweak to avoid un-necessary updation of data
+                        boolean ifAnyThingChanged = (realmName.equalsIgnoreCase(name) && realmPlayedBy.equalsIgnoreCase(playedBy) && realmGender.equalsIgnoreCase(gender) && realmBorn.equalsIgnoreCase(born) && realmDied.equalsIgnoreCase(died) && realmImageUrl.equalsIgnoreCase(imageUrl));
+
+
+                        if (!ifAnyThingChanged) {
+                            mDatabaseRealm.executeTransaction(new Realm.Transaction() {
+                                @Override
+                                public void execute(Realm realm) {
+                                    RealmCharacterFormat characterToBeChanged = realm.where(RealmCharacterFormat.class).equalTo("characterId", primaryKey).findFirst();
+                                    characterToBeChanged.setName(name);
+                                    characterToBeChanged.setPlayedBy(playedBy);
+                                    characterToBeChanged.setGender(gender);
+                                    characterToBeChanged.setBorn(born);
+                                    characterToBeChanged.setDied(died);
+                                    characterToBeChanged.setImageUrl(imageUrl);
+                                }
+                            });
+                        }
+                        characterAdapter.notifyDataSetChanged();
+                        //sortDataSet();
+
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+
+        progress.setVisibility(View.INVISIBLE);
+        return listener;
+
+    }
+
+    public ArrayList<CharacterFormat> removeDuplicates(ArrayList<CharacterFormat> temp) {
         Set<CharacterFormat> t = new HashSet<>();
         t.addAll(temp);
         temp.clear();

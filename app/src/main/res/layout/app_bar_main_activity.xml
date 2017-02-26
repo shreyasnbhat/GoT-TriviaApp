@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         style="@style/SearchView"
+        app:floatingSearch_viewTextColor="@color/white"
         app:floatingSearch_menu="@menu/main"
         android:layout_gravity="top|center_horizontal"
         android:background="#07889b"
