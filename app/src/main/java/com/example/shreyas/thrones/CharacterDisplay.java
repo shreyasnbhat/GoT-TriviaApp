@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -14,6 +15,7 @@ import com.example.shreyas.thrones.Adapters.CharactersRVAdapter;
 import com.example.shreyas.thrones.ItemFormats.CharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.RealmCharacterFormat;
 import com.example.shreyas.thrones.ItemFormats.RealmHouseFormat;
+import com.google.android.gms.phenotype.Configuration;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -105,7 +107,11 @@ public class CharacterDisplay extends AppCompatActivity {
         characterAdapter = new CharactersRVAdapter(characterList, this);
         rv.setAdapter(characterAdapter);
 
-        rv.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+        Log.e("Display Metrics",rv.getResources().getDisplayMetrics().toString());
+
+        int span = calculateSpan();
+
+        rv.setLayoutManager(new StaggeredGridLayoutManager(span, 1));
         rv.setHasFixedSize(true);
 
 
@@ -261,6 +267,27 @@ public class CharacterDisplay extends AppCompatActivity {
         temp.clear();
         temp.addAll(t);
         return temp;
+    }
+
+    public int calculateSpan()
+    {
+        //Check if Portrait Or Landscape
+        //Get span value from xdpi or ydpi
+
+        int span = 2;
+
+        DisplayMetrics screenMetrics = getResources().getDisplayMetrics();
+        float widthPixels = screenMetrics.widthPixels;
+        float heightPixels = screenMetrics.heightPixels;
+        float density = screenMetrics.density;
+        //Gets net dp width
+        float dpWidth = widthPixels/density;
+
+        float temp = dpWidth/150;
+        span = (int)temp;
+
+        return span;
+
     }
 
 

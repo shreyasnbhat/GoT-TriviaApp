@@ -12,15 +12,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.6.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.0"
-        sha1="c10091a128e47ed4ef804bd753c0f45745699756">
-        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-0.6.1_8968a06ebc0646a12bed8749e31e6c81a5e69141.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/io.realm/android-adapters/1.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -75,15 +66,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.0"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/library-2.4.0_85d7b789a3abb60f95b97671fe34330dbf5f6447.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -93,30 +75,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.6.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.0"
-        sha1="dd4c42401d36342901ac4280fb92a831f8007f3d">
-        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-0.6.1_12fd5cfb85f64b461dbea9f27eeb33dab92ad5eb.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
         <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.volley-volley-1.0.0_d8a81707c41ad8abba4e79f09cf6222c37f9bce6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.0"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4_f67e3b6866082d58270a5bbfb2898d0e847413eb.jar" />
     </item>
     <item
         is-multidex="false"
@@ -147,12 +111,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="3b8a1048a1127beb355a77d65dcc446bfa3ca93d">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.1.0_9239c2b1cec3f1c3317631cab8489a4bec32ad9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.0"
         sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
         <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-9.0.0_7d18574bb5e74e68e65b9414506b95be4e06722e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_484360d4d2d598d0788ecc47b73211afb2a89d71.jar" />
     </item>
     <item
         is-multidex="false"
@@ -210,15 +192,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.6.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.0"
-        sha1="af0fe468c884e2d153cf564326b23b54ff0040ce">
-        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-0.6.1_ff55951ce58c696c5874ba041474aee9695d417d.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -273,6 +246,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="536f64f93222b3d004c884c73ddd8e416108da11">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.1.0_441d927fac24c4153666779689fc435d1cfd9c13.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
@@ -306,6 +288,15 @@
         revision="24.0.0"
         sha1="217f7bb1d8656234f84d4d1c3d5a9220d6ab4ce0">
         <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.turingtechnologies.materialscrollbar-lib-10.1.4_7e0f140df73826cfc0afa0180e733006abba4c41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="03881e5c9573abec8007769ffb348356233854c7">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.1.0_f8e891bfa97c7d5b4cb0889fc1599c0913531516.jar" />
     </item>
     <item
         is-multidex="false"
@@ -372,15 +363,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.6.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.0"
-        sha1="eb9817e26186e1a267cdd14211742ecc793de32e">
-        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-0.6.1_e3aae4d7c11afd049973b23c78854cf43d460e10.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
@@ -396,6 +378,24 @@
         revision="24.0.0"
         sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
         <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_df9f337ddd4094600cf2c31acbf4e7cc52f45b85.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="cf836a435a496eb22ff2aa69aa1e619462549f81">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.1.0_078057b3ccf0509a6ca1693d659b799ce137d640.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="fcca411028f175f034d209ca24a694c46a88eb03">
+        <dex dex="/home/shreyas/AndroidProjects/GoT-TriviaApp/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.1.0_6ec171f352b80135a13cd25b465a59423f814e16.jar" />
     </item>
 
 </items>

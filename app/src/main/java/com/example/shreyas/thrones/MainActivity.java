@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity
     private Realm mDatabaseRealm;
     private SearchRVAdapter searchAdapter = new SearchRVAdapter(results, this);
 
+
+
     @Override
     protected void onStart() {
         super.onStart();

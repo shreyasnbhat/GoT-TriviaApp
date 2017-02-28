@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:stateListAnimator="@animator/lift_on_touch"
         android:layout_margin="4dp"
+        app:cardCornerRadius="2dp"
         android:id="@+id/sworn_member_card"
         android:layout_height="wrap_content">
 
@@ -65,7 +66,7 @@
         android:layout_below="@id/sworn_member_card"
         android:layout_margin="4dp"
         android:stateListAnimator="@animator/lift_on_touch"
-        app:cardCornerRadius="0dp">
+        app:cardCornerRadius="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -79,7 +80,7 @@
                 android:background="#60000000"
                 android:fontFamily="sans-serif-smallcaps"
                 android:padding="16dp"
-                android:text="House Data"
+                android:text="Details"
                 android:textColor="@color/white"
                 android:textSize="22sp" />
 
@@ -88,7 +89,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/house_wiki"
-                android:fontFamily="sans-serif-smallcaps"
                 android:gravity="left"
                 android:maxLines="1"
                 android:padding="8dp"
@@ -104,7 +104,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/house_wiki"
-                android:fontFamily="sans-serif-condensed"
                 android:maxLines="1"
                 android:padding="8dp"
                 android:text="Current Lord"
@@ -119,7 +118,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/lord_details"
-                android:fontFamily="sans-serif-smallcaps"
                 android:gravity="left"
                 android:maxLines="1"
                 android:padding="8dp"
@@ -145,7 +143,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/region_details"
-                android:fontFamily="sans-serif-smallcaps"
                 android:gravity="left"
                 android:maxLines="1"
                 android:padding="8dp"
@@ -177,7 +174,7 @@
         android:layout_below="@+id/house_details_card"
         android:layout_margin="4dp"
         android:stateListAnimator="@animator/lift_on_touch"
-        app:cardCornerRadius="0dp">
+        app:cardCornerRadius="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -192,7 +189,7 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:maxLines="1"
                 android:padding="16dp"
-                android:text="House Wiki"
+                android:text="Wiki"
                 android:textColor="#ffffff"
                 android:textSize="22dp"
 

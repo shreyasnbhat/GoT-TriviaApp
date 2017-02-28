@@ -1,9 +1,11 @@
 package com.example.shreyas.thrones.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -68,7 +70,9 @@ public class CharactersRVAdapter extends RecyclerView.Adapter<CharactersRVAdapte
                     intent.putExtra("died",character.getDied());
                     intent.putExtra("born",character.getBorn());
                     intent.putExtra("imageUrl",character.getImageUrl());
-                    mContext.startActivity(intent);
+                    ActivityOptionsCompat options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation((Activity)mContext, image, "characterImageTransition");
+                    mContext.startActivity(intent,options.toBundle());
                 }
             });
         }

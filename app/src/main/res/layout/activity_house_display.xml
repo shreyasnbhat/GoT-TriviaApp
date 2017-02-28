@@ -11,7 +11,7 @@
         android:title="Houses"
         android:titleTextColor="#ffffff"
         app:theme="@style/ToolbarStyle"
-        android:background="@color/colorPrimary"
+        android:background="#562925"
         >
 
     </android.support.v7.widget.Toolbar>

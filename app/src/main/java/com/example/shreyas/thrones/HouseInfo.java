@@ -108,7 +108,6 @@ public class HouseInfo extends AppCompatActivity {
         //Setup Wiki TextViews
         setupWikiTextViews(words,currentLord,region);
 
-
         //ArrayAdapter Stuff
         final CharactersRVAdapter adapter = new CharactersRVAdapter(swornMembersList, this);
         swornMemberRecyclerView.setAdapter(adapter);

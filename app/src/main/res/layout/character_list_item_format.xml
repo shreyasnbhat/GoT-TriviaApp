@@ -8,7 +8,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="0dp"
-    android:layout_margin="4dp"
+    android:stateListAnimator="@animator/lift_on_touch"
+    android:layout_margin="0dp"
     >
 
     <com.facebook.drawee.view.SimpleDraweeView
@@ -16,6 +17,7 @@
         android:layout_height="150dp"
         android:layout_margin="8dp"
         fresco:roundAsCircle="false"
+        android:transitionName="characterImageTransition"
         fresco:actualImageScaleType="focusCrop"
         fresco:placeholderImage="@drawable/avatar_placeholder"
         android:id="@+id/character_image"
